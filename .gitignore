@@ -1,0 +1,5 @@
+*.un~
+*.swp
+.ropeproject
+local_bashrc
+def.pyc
