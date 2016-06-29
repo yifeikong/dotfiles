@@ -112,6 +112,7 @@ runtime macros/matchit.vim
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
