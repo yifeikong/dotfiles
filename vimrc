@@ -112,6 +112,7 @@ runtime macros/matchit.vim
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
