@@ -205,7 +205,7 @@ noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
 nnoremap <leader>t :Tabularize /\v
 
-map <Leader>p <plug>NERDTreeTabsToggle<CR>
+map <F2> <plug>NERDTreeTabsToggle<CR>
 
 noremap <C-n><C-p> :MBEbp<CR>
 noremap <C-n><C-n> :MBEbn<CR>
@@ -232,8 +232,9 @@ if has('nvim')
     tnoremap <A-j> <C-\><C-n><C-w>j
     tnoremap <A-k> <C-\><C-n><C-w>k
     tnoremap <A-l> <C-\><C-n><C-w>l
-    nnoremap <A-h> <C-w>h
-    nnoremap <A-j> <C-w>j
-    nnoremap <A-k> <C-w>k
-    nnoremap <A-l> <C-w>l
+    function! Python_run()
+        execute('split')
+        execute('term python3 -i '.expand('%'))
+    endfunction
+    nnoremap <F4> :call Python_run()<CR>
 endif
