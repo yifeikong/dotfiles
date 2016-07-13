@@ -111,7 +111,7 @@ let g:ag_lhandler="botleft lopen"
 runtime macros/matchit.vim
 
 call plug#begin('~/.vim/plugged')
-
+Plug 'alvan/vim-php-manual'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
