@@ -1,0 +1,13 @@
+[user]
+	name = Yifei Kong
+	email = kongyifei@gmail.com
+[push]
+	default = simple
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	ps = push
+	pl = pull
+	unstage = reset HEAD --

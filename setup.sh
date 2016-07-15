@@ -5,6 +5,7 @@ DOTFILES_DIR=$HOME/.dotfiles
 # Linking
 ln -s $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 ln -s $DOTFILES_DIR/agignore ~/.agignore
+ln -s $DOTFILES_DIR/gitconfig ~/.gitconfig
 echo "source $DOTFILES_DIR/bashrc" >> ~/.bashrc
 mkdir ~/.fonts
 cp ~/.dotfiles/monaco_powerline.otf ~/.fonts
