@@ -64,6 +64,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au FileType javascript setlocal shiftwidth=2 tabstop=2 
 au FileType html setlocal shiftwidth=2 tabstop=2 
 au FileType css setlocal shiftwidth=2 tabstop=2 
+au FileType yaml setlocal shiftwidth=2 tabstop=2 
 
 au FocusLost * :wa
 
@@ -80,6 +81,7 @@ let g:vimim_cloud=-1
 let g:vimim_toggle='pinyin'
 let g:airline_powerline_fonts=1
 let g:airline_theme='powerlineish'
+let g:airline_theme='solarized'
 set noshowmode
 set laststatus=2
 
@@ -117,6 +119,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
+Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -222,7 +225,9 @@ noremap <C-n>b :MBEToggle<cr>
 nnoremap <Space> za
 vnoremap <Space> zf
 
-colo gotham256 " colorscheme depends on plugins
+"colo gotham256 " colorscheme depends on plugins
+set background=light
+colo solarized
 hi Folded ctermbg=None guibg=None " I just don't like the folded line to be hied
 
 

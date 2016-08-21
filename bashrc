@@ -1,7 +1,17 @@
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+nonzero_return() {
+    RETVAL=$?
+    [ $RETVAL -ne 0 ] && echo "$RETVAL"
+}
+
+parse_git_branch() { 
+   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' 
+} 
+
+export PS1="\[\e[1m\]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[1m\]\u@\h \w \[\e[31m\]\`nonzero_return\`\[\e[m\]\\$ "
+export THE_PS1=$PS1
 
 export EDITOR='vim'
 [ -z "$TMUX" ] && export TERM='xterm-256color'
@@ -36,6 +46,17 @@ gdiff() {
     diff -u $@ | colordiff | less -R;
 }
 
+proxy() {
+    if [ $1 == "on" ]; then
+        export http_proxy="http://127.0.0.1:1080"
+        export https_proxy=$http_proxy
+    else
+        export http_proxy=""
+        export https_proxy=$http_proxy
+    fi
+}
+
+
 DEFAULT_VENV_NAME=".venv"
 alias create-venv2="virtualenv $DEFAULT_VENV_NAME"
 alias create-venv="python3 -m venv $DEFAULT_VENV_NAME"
@@ -46,11 +67,16 @@ _virtualenv_auto_activate() {
         # Check to see if already activated to avoid redundant activating
         if [ "$VIRTUAL_ENV" != "$(pwd -P)/.venv" ]; then
             echo Activating virtualenv ...
+            export VENV_ROOT=$PWD
             VIRTUAL_ENV_DISABLE_PROMPT=1
             source .venv/bin/activate
-            _OLD_VIRTUAL_PS1="$PS1"
-            PS1="\[$(tput setaf 6)\]\[$(tput bold)\][v]\[$(tput sgr0)\]$PS1"
-            export PS1
+            export PS1="\[\e[1m\]\[\e[33m\][v]\[\e[m\]$THE_PS1"
+        fi
+    else
+        if [ "${PWD##$VENV_ROOT}" == "${PWD}" ]; then
+            # should check if parent exists .venv
+            export PS1=$THE_PS1
+            type deactivate &> /dev/null && deactivate
         fi
     fi
 }
