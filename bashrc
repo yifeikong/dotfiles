@@ -1,3 +1,5 @@
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
@@ -15,6 +17,8 @@ export THE_PS1=$PS1
 
 export EDITOR='vim'
 [ -z "$TMUX" ] && export TERM='xterm-256color'
+alias vi=vim
+alias v=vim
 alias cd..='cd ..'
 alias bpy=bpython
 alias py=python
@@ -29,13 +33,13 @@ alias hgrep='history | grep'
 alias shn='sudo shutdown -h now'
 alias mirror='wget -E -H -k -K -p'
 alias prettyjson='python -m json.tool'
-alias def='python ~/.dotfiles/def.py'
+alias def='python3 ~/.dotfiles/def.py'
 alias reload='source ~/.bashrc && echo ".bashrc reloaded"'
 alias dc='docker-compose'
 alias spaces='du -sh $(ls)'
 alias sudo='sudo ' # magic trick to bring aliases to sudo
 alias px="proxychains4"
-alias docker-init='eval "$(docker-machine env default)"'
+alias dkr="docker"
 alias lcurl='curl --noproxy localhost'
 
 =() {

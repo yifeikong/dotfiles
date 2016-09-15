@@ -1,23 +1,25 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding: utf-8
 
 
 import sys
 import json
-import urllib2 as urllib
+import urllib.request
 
 
 DICT_API = 'http://dict-co.iciba.com/api/dictionary.php?w={word}&key={key}&type=json'
 KEY = '107241AAB808EBDAAF6124EBFCEB5849'
 
+WORD_BOOk = 'new_words.csv'
+
 
 def lookup(word):
     url = DICT_API.format(word=word, key=KEY)
     try:
-        resp = urllib.urlopen(url)
-    except urllib.URLError as e:
+        resp = urllib.request.urlopen(url)
+    except urllib.request.URLError as e:
         print('check your network')
-    json_result = json.loads(resp.read())
+    json_result = json.loads(resp.read().decode('utf-8'))
     try:
         meanings = json_result['symbols'][0]['parts']
         sound = json_result['symbols'][0]['ph_am']
@@ -29,6 +31,8 @@ def lookup(word):
         print(meaning['part'])
         for mean in meaning['means']:
             print('\t' + mean)
+            with open(WORD_BOOk, mode='a', encoding='utf-8') as f:
+                f.write('{}, {}, {}, {}\n'.format(word, sound, meaning['part'], mean))
     print('\n')
 
 if __name__ == '__main__':

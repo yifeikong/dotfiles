@@ -61,9 +61,6 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 " filetype fixes
 au BufRead,BufNewFile *.md set filetype=markdown
-au FileType javascript setlocal shiftwidth=2 tabstop=2 
-au FileType html setlocal shiftwidth=2 tabstop=2 
-au FileType css setlocal shiftwidth=2 tabstop=2 
 au FileType yaml setlocal shiftwidth=2 tabstop=2 
 
 au FocusLost * :wa
@@ -226,7 +223,7 @@ nnoremap <Space> za
 vnoremap <Space> zf
 
 "colo gotham256 " colorscheme depends on plugins
-set background=light
+set background=dark
 colo solarized
 hi Folded ctermbg=None guibg=None " I just don't like the folded line to be hied
 
