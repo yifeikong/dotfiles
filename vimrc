@@ -225,7 +225,7 @@ vnoremap <Space> zf
 "colo gotham256 " colorscheme depends on plugins
 set background=dark
 colo solarized
-hi Folded ctermbg=None guibg=None " I just don't like the folded line to be hied
+hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 
 
 if has('nvim')
