@@ -45,7 +45,7 @@ set textwidth=80
 set formatoptions=qrn1
 set colorcolumn=81            " 81th column colored
 set list
-set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
 
 " for molokai, no need for that! 
 " line ending color

@@ -40,7 +40,7 @@ install_vim() {
 
 for prog in tmux ag git fonts bashrc vim; do
     if [ "$1" != "-y" ]; then
-        echo -n "$(tput bold)install $prog config?[Y/n]$(tput sgr0) "
+        echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
         read ok
         if [ "$ok" == 'n' ]; then
             continue
