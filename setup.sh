@@ -38,7 +38,11 @@ install_vim() {
     cd -
 }
 
-for prog in tmux ag git fonts bashrc vim; do
+install_ssh() {
+    cat $DOTFILES_DIR/ssh_config >> $HOME/.ssh/config
+}
+
+for prog in tmux ag git fonts bashrc vim ssh; do
     if [ "$1" != "-y" ]; then
         echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
         read ok

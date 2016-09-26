@@ -132,7 +132,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 "Plug 'vim-scripts/Conque-GDB' " not compatiable with vim-plug
 "Plug 'Rip-Rip/clang_complete'
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 "Plug 'klen/python-mode'
 Plug 'pangloss/vim-javascript'
@@ -144,10 +144,11 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mattn/emmet-vim'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'rking/ag.vim'
-Plug 'scrooloose/syntastic'  " syntastic checking 
+"Plug 'scrooloose/syntastic'  " syntastic checking 
 Plug 'guns/xterm-color-table.vim'
 Plug 'craigemery/vim-autotag'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kshenoy/vim-signature'
 
 call plug#end()
 
