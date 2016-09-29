@@ -179,7 +179,6 @@ noremap <leader>V :w<CR>:source ~/.vimrc<CR>:PlugInstall<CR>
 noremap <leader><Space> :noh<CR>
 noremap <leader>q :wq<CR>
 noremap <leader>a :Ag<Space>
-noremap <leader>b :MBEToggle<cr>
 noremap <leader>m :MBEToggle<cr>
 noremap <leader>s :set spell!<CR>
 
@@ -227,6 +226,9 @@ vnoremap <Space> zf
 set background=dark
 colo solarized
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
+
+au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
+au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
 
 
 if has('nvim')
