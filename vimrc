@@ -47,6 +47,8 @@ set colorcolumn=81            " 81th column colored
 set list
 set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
 
+set mouse=a
+
 " for molokai, no need for that! 
 " line ending color
 "au ColorScheme * highlight SpecialKey ctermfg=243
@@ -229,6 +231,8 @@ hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
 au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
+
+set mouse=a
 
 
 if has('nvim')

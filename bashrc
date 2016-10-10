@@ -87,4 +87,6 @@ _virtualenv_auto_activate() {
 
 export PROMPT_COMMAND=_virtualenv_auto_activate
 
+polipo socksParentProxy=localhost:1080 daemonise=true pidFile=$HOME/.polipo.pid logFile=/dev/null
+
 [[ -s ~/.dotfiles/local_bashrc ]] && source ~/.dotfiles/local_bashrc
