@@ -42,7 +42,11 @@ install_ssh() {
     cat $DOTFILES_DIR/ssh_config >> $HOME/.ssh/config
 }
 
-for prog in tmux ag git fonts bashrc vim ssh; do
+install_completions() {
+    bash $DOTFILES_DIR/install_completions.sh
+}
+
+for prog in tmux ag git fonts bashrc vim ssh completions; do
     if [ "$1" != "-y" ]; then
         echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
         read ok
