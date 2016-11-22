@@ -53,7 +53,7 @@ gdiff() {
 
 proxy() {
     if [ $1 == "on" ]; then
-        export http_proxy="http://127.0.0.1:1080"
+        export http_proxy="http://127.0.0.1:8123"
         export https_proxy=$http_proxy
     else
         export http_proxy=""
