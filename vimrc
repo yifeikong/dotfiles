@@ -40,14 +40,17 @@ set number                    " show line number
 "set rnu                       " relative number
 set wrap                      " auto reline
 set foldmethod=indent
-set foldnestmax=2
+set foldnestmax=99
 set textwidth=80
 set formatoptions=qrn1
-set colorcolumn=81            " 81th column colored
+set colorcolumn=120           " 81th column colored
 set list
 set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
 
 set mouse=a
+
+set splitright
+set splitbelow
 
 " for molokai, no need for that! 
 " line ending color
@@ -202,14 +205,17 @@ vnoremap / /\v
 
 
 noremap <F1> <esc>
-noremap <F6> :OpenSession<cr>
-noremap <F7> :ConqueGdb<CR>
 
 noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
 nnoremap <leader>t :Tabularize /\v
 
-map <F2> <plug>NERDTreeTabsToggle<CR>
+noremap <F2> <plug>NERDTreeTabsToggle<CR>
+
+noremap <C-j> 5j
+noremap <C-h> 5h
+noremap <C-k> 5k
+noremap <C-l> 5l
 
 noremap <C-n><C-p> :MBEbp<CR>
 noremap <C-n><C-n> :MBEbn<CR>
@@ -223,8 +229,6 @@ noremap <C-n>q :MBEbd<CR>
 noremap <C-n>c :enew<CR>
 noremap <C-n>b :MBEToggle<cr>
 
-nnoremap <Space> za
-vnoremap <Space> zf
 
 "colo gotham256 " colorscheme depends on plugins
 set background=dark
