@@ -135,7 +135,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 "Plug 'vim-scripts/Conque-GDB' " not compatiable with vim-plug
 "Plug 'Rip-Rip/clang_complete'
-"Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 "Plug 'klen/python-mode'
 Plug 'pangloss/vim-javascript'
@@ -152,6 +152,7 @@ Plug 'guns/xterm-color-table.vim'
 Plug 'craigemery/vim-autotag'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
+Plug 'nvie/vim-flake8'
 
 call plug#end()
 
@@ -234,6 +235,11 @@ au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
 au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
 
 set mouse=a
+
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+aug END
 
 
 if has('nvim')
