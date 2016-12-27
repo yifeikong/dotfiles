@@ -72,7 +72,6 @@ _virtualenv_auto_activate() {
     if [ -e ".venv" ]; then
         # Check to see if already activated to avoid redundant activating
         if [ "$VIRTUAL_ENV" != "$(pwd -P)/.venv" ]; then
-            echo Activating virtualenv ...
             export VENV_ROOT=$PWD
             VIRTUAL_ENV_DISABLE_PROMPT=1
             source .venv/bin/activate

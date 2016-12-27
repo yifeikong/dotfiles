@@ -92,7 +92,7 @@ let g:session_autoload='no'
 
 
 let NERDTreeIgnore=['\.pyc$', '\.lo$', '\.o', '\.la']
-let NERDTreeWinPos='right'
+"let NERDTreeWinPos='right'
 let g:nerdtree_tabs_open_on_console_startup = 0
 let g:startify_disable_at_vimenter = 1
 
@@ -118,7 +118,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'alvan/vim-php-manual'
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'christoomey/vim-tmux-navigator'
+"Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
@@ -216,6 +216,9 @@ noremap <C-j> 5j
 noremap <C-h> 5h
 noremap <C-k> 5k
 noremap <C-l> 5l
+
+noremap <C-e> 5<C-e>
+noremap <C-y> 5<C-y>
 
 noremap <C-n><C-p> :MBEbp<CR>
 noremap <C-n><C-n> :MBEbn<CR>
