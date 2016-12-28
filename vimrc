@@ -210,7 +210,7 @@ noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
 nnoremap <leader>t :Tabularize /\v
 
-noremap <F2> <plug>NERDTreeTabsToggle<CR>
+noremap <F2> :NERDTreeTabsToggle<CR>
 
 noremap <C-j> 5j
 noremap <C-h> 5h
