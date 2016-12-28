@@ -156,6 +156,7 @@ Plug 'craigemery/vim-autotag'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'nvie/vim-flake8'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -231,6 +232,8 @@ noremap <C-n>n :MBEbn<CR>
 noremap <C-n>q :MBEbd<CR>
 noremap <C-n>c :enew<CR>
 noremap <C-n>b :MBEToggle<cr>
+
+noremap <leader>i :IndentLinesToggle<cr>
 
 
 "colo gotham256 " colorscheme depends on plugins
