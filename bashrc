@@ -88,9 +88,11 @@ _virtualenv_auto_activate() {
 
 export PROMPT_COMMAND=_virtualenv_auto_activate
 
-polipo socksParentProxy=localhost:1080 daemonise=true pidFile=$HOME/.polipo.pid logFile=/dev/null
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+if uname | grep -q Darwin; then
+    polipo socksParentProxy=localhost:1080 daemonise=true pidFile=$HOME/.polipo.pid logFile=/dev/null
+    export ANDROID_HOME=$HOME/Library/Android/sdk
+    export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+fi
 
 for f in $HOME/.dotfiles/completions/*.sh; do
     source "$f"
