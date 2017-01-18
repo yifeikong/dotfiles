@@ -110,6 +110,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:flake8_show_in_gutter = 1
+
 let g:ag_lhandler="botleft lopen"
 
 runtime macros/matchit.vim
@@ -157,6 +159,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'nvie/vim-flake8'
 Plug 'Yggdroot/indentLine'
+Plug 'pelodelfuego/vim-swoop'
 
 call plug#end()
 
@@ -235,6 +238,8 @@ noremap <C-n>b :MBEToggle<cr>
 
 noremap <leader>i :IndentLinesToggle<cr>
 
+noremap <leader>j :%!python -m json.tool<cr>
+
 
 "colo gotham256 " colorscheme depends on plugins
 set background=dark
@@ -251,6 +256,8 @@ aug QFClose
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
 aug END
 
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
 
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
