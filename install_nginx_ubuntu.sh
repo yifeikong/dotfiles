@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
-echo which nginx version to install
-read NGINX_VER 
-echo where to install nginx
-read INSTALL_DIR 
+echo -n "which version to install> "
+read NGINX_VER
+echo -n "where to install> "
+read INSTALL_DIR
 
 if [ -z $NGINX_VER ]; then
     NGINX_VER=1.11.4
@@ -23,3 +23,4 @@ make
 sudo make install
 cd -
 rm -rf nginx-${NGINX_VER}
+echo "see $INSTALL_DIR/sbin/nginx -h for help"
