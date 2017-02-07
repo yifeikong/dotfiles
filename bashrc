@@ -12,7 +12,8 @@ parse_git_branch() {
    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-export PS1="\[\e[1m\]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[1m\]\[\e[36m\]\u@\h \w \[\e[31m\]\`nonzero_return\`\[\e[m\]\\$ "
+
+export PS1="\[\e[1m\]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[1m\]\[\e[31m\]\u@\h \[\e[36m\]\w \[\e[31m\]\`nonzero_return\`\[\e[m\]\\$ "
 export THE_PS1=$PS1
 
 export EDITOR='vim'
