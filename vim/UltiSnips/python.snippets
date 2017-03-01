@@ -1,0 +1,20 @@
+snippet importall
+import os
+import sys
+import json
+import requests
+import pickle
+from datetime import datetime, timedelta
+try:
+    from urllib.parse import quote as urlquote
+    from urllib.parse import urlsplit, urlunsplit, urlencode, parse_qs, parse_qsl
+except ImportError:
+    from urlib import quote as urlquote
+    from urlparse import urlsplit, urlunsplit, urlencode, parse_qs, parse_qsl
+endsnippet
+
+snippet shebang
+#!/usr/bin/env python
+# coding: utf-8
+
+endsnippet

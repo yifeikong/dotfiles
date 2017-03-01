@@ -123,16 +123,16 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 "Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
-Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
+"Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
 Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
+"Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-surround' " causing clipboard issue
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/vimim'
-Plug 'oplatek/Conque-Shell'
+"Plug 'oplatek/Conque-Shell'
 Plug 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
 Plug 'cakebaker/scss-syntax.vim'
 "Plug 'ryanss/vim-hackernews' " bugs
@@ -150,7 +150,7 @@ Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mattn/emmet-vim'
-Plug 'fholgado/minibufexpl.vim'
+"Plug 'fholgado/minibufexpl.vim'
 Plug 'rking/ag.vim'
 "Plug 'scrooloose/syntastic'  " syntastic checking 
 Plug 'guns/xterm-color-table.vim'
@@ -160,8 +160,17 @@ Plug 'kshenoy/vim-signature'
 Plug 'nvie/vim-flake8'
 Plug 'Yggdroot/indentLine'
 Plug 'pelodelfuego/vim-swoop'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 
 call plug#end()
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<leader><tab>"
+let g:jedi#use_tabs_not_buffers=1
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 autocmd FileType python setlocal completeopt-=preview " disable doc window in jedi-vim
 

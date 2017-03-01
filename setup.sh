@@ -29,6 +29,8 @@ install_flake8() {
 
 install_vim() {
     # Vim, vimrc is inside dotfiles, but .vim files are outside
+    mkdir ~/.vim
+    ln -s $DOTFILES_DIR/vim/UltiSnips ~/.vim/UltiSnips
     cd ~
     curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
