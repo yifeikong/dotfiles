@@ -18,8 +18,14 @@ export THE_PS1=$PS1
 
 export EDITOR='vim'
 [ -z "$TMUX" ] && export TERM='xterm-256color'
-alias vi=vim
-alias v=vim
+if type nvim &> /dev/null; then
+    alias vi=nvim
+    alias v=nvim
+    alias vim=nvim
+else
+    alias vi=vim
+    alias v=vim
+fi
 alias t='tmux -2'
 alias cd..='cd ..'
 alias bpy=bpython
@@ -44,6 +50,7 @@ alias px="proxychains4"
 alias dkr="docker"
 alias lcurl='curl --noproxy localhost'
 alias save-last-command='history | tail -n 2 | head -n 1 >> ~/.dotfiles/useful_commands'
+alias nv='nvim'
 
 =() {
     python3 -c "from math import *;print($*)"

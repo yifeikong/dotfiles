@@ -221,8 +221,6 @@ noremap <F1> <esc>
 
 noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
-nnoremap <leader>t :Tabularize /\v
-
 noremap <F2> :NERDTreeTabsToggle<CR>
 
 noremap <C-j> 5j
@@ -246,6 +244,7 @@ noremap <C-n>c :enew<CR>
 noremap <C-n>b :MBEToggle<cr>
 
 noremap <leader>i :IndentLinesToggle<cr>
+noremap <leader>t :term<cr>
 
 noremap <leader>j :%!python -m json.tool<cr>
 

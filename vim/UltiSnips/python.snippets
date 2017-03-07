@@ -1,20 +1,66 @@
 snippet importall
+from __future__ import unicode_literals
 import os
 import sys
 import json
 import requests
 import pickle
+import time
+import random
 from datetime import datetime, timedelta
 try:
-    from urllib.parse import quote as urlquote
-    from urllib.parse import urlsplit, urlunsplit, urlencode, parse_qs, parse_qsl
+    from urllib.parse import quote as urlquote, urlsplit, urlunsplit, urlencode, parse_qs, parse_qsl
 except ImportError:
-    from urlib import quote as urlquote
-    from urlparse import urlsplit, urlunsplit, urlencode, parse_qs, parse_qsl
+    from urllib import quote as urlquote, urlencode
+    from urlparse import urlsplit, urlunsplit, parse_qs, parse_qsl
+$0
 endsnippet
 
 snippet shebang
 #!/usr/bin/env python
 # coding: utf-8
-
+$0
 endsnippet
+
+snippet importcrawl
+import crawl_data.setup_crawl_env
+import os
+os.environ['DJANGO_SETTINGS_MODULE'] = 'crawl_data.djangosite.settings'
+import django
+django.setup()
+$0
+endsnippet
+
+
+snippet argparse
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('$1', help='$2')
+
+args = parser.parse_args()
+endsnippet
+
+snippet proxies
+proxies = {'http': 'http://10.4.18.169:3128'}
+$0
+endsnippet
+
+snippet proxiesgfw
+proxies = {'http': 'http://10.4.16.31:3128'}
+$0
+endsnippet
+
+snippet scriptinit
+if __name__ == '__main__':
+    from crawl_data.domain.utils.script import get_fullpath, script_init
+    sc = script_init('$1', ['kongyifei.rocks'],
+        get_full_path(__file__, '${2:../conf}',
+        post_argparse=post_argparse, restart_interval=648600, use_ttrace=True)
+
+    start_tracer()
+    if sc.args.run_once():
+        test(sc.conf, sc.args)
+    else:
+        main(sc.conf, sc.args)
+endsnippet
+
