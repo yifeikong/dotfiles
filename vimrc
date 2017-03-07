@@ -148,7 +148,7 @@ Plug 'mxw/vim-jsx'
 "Plug 'junegunn/vim-easy-align' " I literally don't know how to use
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+"Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mattn/emmet-vim'
 "Plug 'fholgado/minibufexpl.vim'
 Plug 'rking/ag.vim'
@@ -221,7 +221,7 @@ noremap <F1> <esc>
 
 noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
-noremap <F2> :NERDTreeTabsToggle<CR>
+noremap <F2> :NERDTreeToggle<CR>
 
 noremap <C-j> 5j
 noremap <C-h> 5h
