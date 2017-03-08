@@ -222,6 +222,7 @@ noremap <F1> <esc>
 noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
 noremap <F2> :NERDTreeToggle<CR>
+noremap <leader>u :UltiSnipsEdit<CR>
 
 noremap <C-j> 5j
 noremap <C-h> 5h
