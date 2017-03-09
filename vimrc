@@ -140,7 +140,6 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 "Plug 'vim-scripts/Conque-GDB' " not compatiable with vim-plug
 "Plug 'Rip-Rip/clang_complete'
-Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 "Plug 'klen/python-mode'
 Plug 'pangloss/vim-javascript'
@@ -160,8 +159,11 @@ Plug 'kshenoy/vim-signature'
 Plug 'nvie/vim-flake8'
 Plug 'Yggdroot/indentLine'
 Plug 'pelodelfuego/vim-swoop'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+if has('python')
+    Plug 'SirVer/ultisnips'
+    Plug 'davidhalter/jedi-vim'
+    Plug 'honza/vim-snippets'
+endif
 
 
 call plug#end()
@@ -229,9 +231,6 @@ noremap <C-h> 5h
 noremap <C-k> 5k
 noremap <C-l> 5l
 
-noremap <C-e> 5<C-e>
-noremap <C-y> 5<C-y>
-
 noremap <C-n><C-p> :MBEbp<CR>
 noremap <C-n><C-n> :MBEbn<CR>
 noremap <C-n><C-q> :MBEbd<CR>
@@ -244,10 +243,24 @@ noremap <C-n>q :MBEbd<CR>
 noremap <C-n>c :enew<CR>
 noremap <C-n>b :MBEToggle<cr>
 
+" I type these wrong 50 times per day
+nnoremap <C-a> ^
+nnoremap <C-e> $
+inoremap <C-a> <HOME>
+inoremap <C-e> <END>
+vnoremap <C-a> ^
+vnoremap <C-e> $
+
 noremap <leader>i :IndentLinesToggle<cr>
 noremap <leader>t :term<cr>
 
 noremap <leader>j :%!python -m json.tool<cr>
+
+" close nerdtree on open file
+let NERDTreeQuitOnOpen=1
+" close nerdtree on quit vim
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 
 "colo gotham256 " colorscheme depends on plugins

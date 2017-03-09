@@ -1,7 +1,11 @@
+snippet importfuture
+from __future__ import unicode_literals, absolute_import
+endsnippet
+
 snippet importall
-from __future__ import unicode_literals
 import os
 import sys
+import re
 import json
 import requests
 import pickle
@@ -54,13 +58,18 @@ snippet scriptinit
 if __name__ == '__main__':
     from crawl_data.domain.utils.script import get_fullpath, script_init
     sc = script_init('$1', ['kongyifei.rocks'],
-        get_full_path(__file__, '${2:../conf}',
-        post_argparse=post_argparse, restart_interval=648600, use_ttrace=True)
+        get_fullpath(__file__, '${2:../conf}'),
+        post_argparse=post_argparse, restart_interval=648600)
 
-    start_tracer()
     if sc.args.run_once():
         test(sc.conf, sc.args)
     else:
         main(sc.conf, sc.args)
 endsnippet
 
+snippet postargparse
+def post_argparse(parser):
+    parser.add_argument('--run-once', action='store_true', help='run once')
+    parser.add_argument('$1', --help='$2')
+    $0
+endsnippet
