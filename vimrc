@@ -159,6 +159,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'nvie/vim-flake8'
 Plug 'Yggdroot/indentLine'
 Plug 'pelodelfuego/vim-swoop'
+Plug 'solarnz/thrift.vim'
 if has('python')
     Plug 'SirVer/ultisnips'
     Plug 'davidhalter/jedi-vim'
