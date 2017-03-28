@@ -11,6 +11,8 @@ import requests
 import pickle
 import time
 import random
+import logging
+import csv
 from datetime import datetime, timedelta
 try:
     from urllib.parse import quote as urlquote, urlsplit, urlunsplit, urlencode, parse_qs, parse_qsl
@@ -61,10 +63,7 @@ if __name__ == '__main__':
         get_fullpath(__file__, '${2:../conf}'),
         post_argparse=post_argparse, restart_interval=648600)
 
-    if sc.args.run_once():
-        test(sc.conf, sc.args)
-    else:
-        main(sc.conf, sc.args)
+    main(sc.conf, sc.args)
 endsnippet
 
 snippet postargparse
@@ -72,4 +71,16 @@ def post_argparse(parser):
     parser.add_argument('--run-once', action='store_true', help='run once')
     parser.add_argument('$1', --help='$2')
     $0
+endsnippet
+
+snippet importdal
+from crawl_data
+endsnippet
+
+snippet importmodel
+from crawl_data
+endsnippet
+
+snippet drydal
+from ss_datacenter.djangosite.appcommon import dry_dal
 endsnippet
