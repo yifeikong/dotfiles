@@ -255,7 +255,7 @@ vnoremap <C-e> $
 noremap <leader>i :IndentLinesToggle<cr>
 noremap <leader>t :term<cr>
 
-noremap <leader>j :%!python -m json.tool<cr>
+noremap <leader>j :%!python3 ~/.dotfiles/format_json.py<cr>
 
 " close nerdtree on open file
 let NERDTreeQuitOnOpen=1

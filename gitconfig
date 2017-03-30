@@ -25,7 +25,7 @@
     sed = !git ls-files --stage | grep ^100 | awk '{print $4}' | xargs sed -r -s
     slg = shortlog --pretty='format:%h %s'
     locate = !sh -c 'git ls-files | grep --color=auto "$1"' -
-    pulldirty = !git stash && git pull --rebase && git stash p
+    pulldirty = !git stash && git pull --rebase && git stash pop
 
 [color]
     branch = auto
