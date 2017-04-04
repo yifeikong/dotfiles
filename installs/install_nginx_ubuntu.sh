@@ -18,12 +18,19 @@ if [ -z $INSTALL_DIR ]; then
     INSTALL_DIR=$DEFAULT_INSTALL_DIR
 fi
 
+apt-get install -y libpcre3 libpcre3-dev \
+    openssl libssl-dev \
+    zlib1g zlib1g-dev \
+
 wget https://nginx.org/download/nginx-${NGINX_VER}.tar.gz
 tar xvzf nginx-${NGINX_VER}.tar.gz
 cd nginx-${NGINX_VER}
 apt-get install libpcre3-dev zlib1g-dev
 ./configure \
-    --prefix=${INSTALL_DIR}
+    --prefix=${INSTALL_DIR} \
+    --with-ipv6 \
+    --with-http_ssl_module
+
 make
 sudo make install
 cd -

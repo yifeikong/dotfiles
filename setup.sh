@@ -40,9 +40,9 @@ install_vim() {
     mkdir -p $HOME/.config
     ln -sfv $HOME/.vim $HOME/.config/nvim # for nvim
     ln -sfv $DOTFILES_DIR/vimrc $HOME/.config/nvim/init.vim
-    ln -s $DOTFILES_DIR/vim/UltiSnips ~/.vim/UltiSnips
+    rm -rf $HOME/.vim/UltiSnips
+    ln -sfv $DOTFILES_DIR/vim/UltiSnips ~/.vim/UltiSnips
     vim +PlugInstall
-    cd -
 }
 
 install_ssh() {
