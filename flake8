@@ -1,2 +1,9 @@
 [flake8]
 max-line-length = 120
+
+# E3 blank line related errors, often found on toutiao code
+# E5 line length, too many
+# E121 continuation line under indent
+# E126 continuation line over indent
+# see also: [a list for error codes](http://pycodestyle.pycqa.org/en/latest/intro.html#error-codes)
+ignore = E3,E5,E121,E126,W391

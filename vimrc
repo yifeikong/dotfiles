@@ -111,6 +111,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:flake8_show_in_gutter = 1
+if !executable('flake8')
+    let g:flake8_cmd="/home/kongyifei.rocks/repos/ss_lib/python_package/lib/python2.7/site-packages/flake8"
+endif
+
 
 let g:ag_lhandler="botleft lopen"
 
