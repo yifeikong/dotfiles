@@ -108,12 +108,22 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
 
 let g:flake8_show_in_gutter = 1
-if !executable('flake8')
+if !executable('flake8') " workaround for toutiao machine
     let g:flake8_cmd="/home/kongyifei.rocks/repos/ss_lib/python_package/lib/python2.7/site-packages/flake8"
 endif
+
+noremap <F7> :SyntasticCheck<CR>
+noremap <F8> :SyntasticReset<CR>
+
+"autocmd BufWritePost *.py call Flake8() " automatically call flake8 when saving python files
+
+let g:ctrlp_max_files=0 " by default, ctrlp only caches 60,000 files
 
 
 let g:ag_lhandler="botleft lopen"
@@ -155,12 +165,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 "Plug 'fholgado/minibufexpl.vim'
 Plug 'rking/ag.vim'
-"Plug 'scrooloose/syntastic'  " syntastic checking 
+Plug 'scrooloose/syntastic'  " syntastic checking
 Plug 'guns/xterm-color-table.vim'
 Plug 'craigemery/vim-autotag'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
-Plug 'nvie/vim-flake8'
+"Plug 'nvie/vim-flake8'
 Plug 'Yggdroot/indentLine'
 Plug 'pelodelfuego/vim-swoop'
 Plug 'solarnz/thrift.vim'
@@ -230,6 +240,7 @@ noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
 noremap <F2> :NERDTreeToggle<CR>
 noremap <leader>u :UltiSnipsEdit<CR>
+noremap <F4> :ccl<CR>
 
 noremap <C-j> 5j
 noremap <C-h> 5h
