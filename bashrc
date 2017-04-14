@@ -112,3 +112,4 @@ for f in $HOME/.dotfiles/completions/*.sh; do
 done
 
 [[ -s ~/.dotfiles/local_bashrc ]] && source ~/.dotfiles/local_bashrc
+source ~/.dotfiles/z/z.sh
