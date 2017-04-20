@@ -113,6 +113,8 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
 
+let g:SimpylFold_docstring_preview = 1
+
 let g:flake8_show_in_gutter = 1
 if !executable('flake8') " workaround for toutiao machine
     let g:flake8_cmd="/home/kongyifei.rocks/repos/ss_lib/python_package/lib/python2.7/site-packages/flake8"
@@ -152,6 +154,8 @@ Plug 'cakebaker/scss-syntax.vim'
 "Plug 'ryanss/vim-hackernews' " bugs
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+Plug 'ashisha/image.vim'
+Plug 'tmhedberg/SimpylFold'
 "Plug 'vim-scripts/Conque-GDB' " not compatiable with vim-plug
 "Plug 'Rip-Rip/clang_complete'
 Plug 'ervandew/supertab'
