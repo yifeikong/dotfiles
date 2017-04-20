@@ -6,4 +6,4 @@ max-line-length = 120
 # E121 continuation line under indent
 # E126 continuation line over indent
 # see also: [a list for error codes](http://pycodestyle.pycqa.org/en/latest/intro.html#error-codes)
-ignore = E3,E5,E121,E126,W391
+ignore = E3,E5,E121,E126,W391,F401,E401,E402,E241,E261,F812,E128,E124
