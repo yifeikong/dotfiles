@@ -27,6 +27,10 @@ install_flake8() {
     ln -sfv $DOTFILES_DIR/flake8 ~/.config/flake8
 }
 
+install_z() {
+    git submodule update --init --recursive
+}
+
 install_vim() {
     # Vim, vimrc is inside dotfiles, but .vim files are outside
     mkdir -p $HOME/.vim
@@ -53,7 +57,7 @@ install_completions() {
     bash $DOTFILES_DIR/install_completions.sh
 }
 
-for prog in tmux ag git fonts bashrc vim ssh completions flake8; do
+for prog in z tmux ag git fonts bashrc vim ssh completions flake8; do
     if [ "$1" != "-y" ]; then
         echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
         read ok
