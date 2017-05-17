@@ -52,6 +52,7 @@ alias lcurl='curl --noproxy localhost'
 alias save-last-command='history | tail -n 2 | head -n 1 >> ~/.dotfiles/useful_commands'
 alias nv='nvim'
 alias aj='autojump'
+alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
 
 killport() {
     fuser -n tcp -k $1
