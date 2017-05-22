@@ -178,6 +178,7 @@ Plug 'nvie/vim-flake8'
 Plug 'Yggdroot/indentLine'
 Plug 'pelodelfuego/vim-swoop'
 Plug 'solarnz/thrift.vim'
+Plug 'vim-python/python-syntax'
 if has('python')
     Plug 'SirVer/ultisnips'
     Plug 'davidhalter/jedi-vim'
