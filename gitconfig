@@ -26,6 +26,8 @@
     slg = shortlog --pretty='format:%h %s'
     locate = !sh -c 'git ls-files | grep --color=auto "$1"' -
     pulldirty = !git stash && git pull --rebase && git stash pop
+    sshow = "!f() { git stash show stash^{/$*} -p; }; f"
+    sapply = "!f() { git stash apply stash^{/$*}; }; f"
 
 [color]
     branch = auto

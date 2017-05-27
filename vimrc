@@ -126,6 +126,7 @@ endif
 autocmd BufWritePost *.py call Flake8() " automatically call flake8 when saving python files
 
 let g:ctrlp_max_files=0 " by default, ctrlp only caches 60,000 files
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|pyc)$'
 
 
 let g:ag_lhandler="botleft lopen"
