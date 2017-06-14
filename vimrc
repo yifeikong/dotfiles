@@ -155,7 +155,6 @@ Plug 'cakebaker/scss-syntax.vim'
 "Plug 'ryanss/vim-hackernews' " bugs
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-Plug 'ashisha/image.vim'
 Plug 'tmhedberg/SimpylFold'
 "Plug 'vim-scripts/Conque-GDB' " not compatiable with vim-plug
 "Plug 'Rip-Rip/clang_complete'
@@ -180,7 +179,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'pelodelfuego/vim-swoop'
 Plug 'solarnz/thrift.vim'
 Plug 'vim-python/python-syntax'
+Plug 'othree/yajs.vim'
 if has('python')
+    Plug 'ashisha/image.vim'
     Plug 'SirVer/ultisnips'
     Plug 'davidhalter/jedi-vim'
     Plug 'honza/vim-snippets'
@@ -244,7 +245,7 @@ noremap <F1> <esc>
 
 noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
-noremap <leader>n :NERDTreeToggle<CR>
+noremap <C-q> :NERDTreeToggle<CR>
 noremap <leader>u :UltiSnipsEdit<CR>
 noremap <leader>c :ccl<CR>
 
