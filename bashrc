@@ -1,6 +1,8 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+stty -ixon  # release C-Q and C-S
+
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 nonzero_return() {
