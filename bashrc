@@ -114,9 +114,12 @@ for f in $HOME/.dotfiles/completions/*.sh; do
     source "$f"
 done
 
+# load app installed in /opt/spider
+for app in thrift python; do
+    if [[ -s /opt/spider/$app ]]; then
+        export PATH=$PATH:/opt/spider/$app/bin
+    fi
+done
+
 [[ -s ~/.dotfiles/local_bashrc ]] && source ~/.dotfiles/local_bashrc
-if [[ -s /opt/spider/python ]] ; then
-    alias python3=/opt/spider/python/bin/python3
-    alias pip3=/opt/spider/python/bin/pip3
-fi
-source ~/.dotfiles/z/z.sh
+
