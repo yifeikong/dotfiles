@@ -5,14 +5,16 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-VERSION=3.6.0
+VERSION=3.6.1
 PREFIX=/opt/spider/python
 
+apt-get install libsqlite3-dev -y
 curl https://www.python.org/ftp/python/${VERSION}/Python-${VERSION}.tgz -o Python-${VERSION}.tgz
 tar xvzf Python-${VERSION}.tgz
 cd Python-${VERSION}
 ./configure \
-    --prefix=${PREFIX}
+    --prefix=${PREFIX} \
+    --enable-loadable-sqlite-extensions
 make
 make install
 
