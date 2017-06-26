@@ -114,6 +114,11 @@ let g:syntastic_warning_symbol = '!'
 
 let g:SimpylFold_docstring_preview = 1
 
+let g:tagbar_compact = 1
+let g:tagbar_show_linenumbers = 1
+nnoremap <leader>p :Tagbar<cr>
+nnoremap <C-]> g<C-]>
+
 let g:flake8_show_in_gutter = 1
 if !executable('flake8') " workaround for toutiao machine
     let g:flake8_cmd="/home/kongyifei.rocks/repos/ss_lib/python_package/lib/python2.7/site-packages/flake8"
@@ -179,6 +184,9 @@ Plug 'pelodelfuego/vim-swoop'
 Plug 'solarnz/thrift.vim'
 Plug 'vim-python/python-syntax'
 Plug 'othree/yajs.vim'
+" install exburtan-tags
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 if has('python')
     Plug 'ashisha/image.vim'
     Plug 'SirVer/ultisnips'
@@ -242,6 +250,7 @@ vnoremap / /\v
 noremap <F1> <esc>
 
 noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
+noremap <C-[> <C-t>
 
 noremap <C-q> :NERDTreeToggle<CR>
 noremap <leader>u :UltiSnipsEdit<CR>
