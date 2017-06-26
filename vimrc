@@ -38,10 +38,10 @@ set undofile                  " infinite undo
 " color and outfit
 set number                    " show line number
 "set rnu                       " relative number
-set wrap                      " auto reline
+set nowrap                      " auto reline
 set foldmethod=indent
 set foldnestmax=99
-set textwidth=80
+set textwidth=120
 set formatoptions=qrn1
 set colorcolumn=120           " 81th column colored
 set list
@@ -82,7 +82,6 @@ set hlsearch
 let g:vimim_cloud=-1
 let g:vimim_toggle='pinyin'
 let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
 let g:airline_theme='solarized'
 set noshowmode
 set laststatus=2
@@ -91,7 +90,7 @@ let g:session_autosave='yes'
 let g:session_autoload='no'
 
 
-let NERDTreeIgnore=['\.pyc$', '\.lo$', '\.o', '\.la']
+let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o', '\.la']
 "let NERDTreeWinPos='right'
 let g:nerdtree_tabs_open_on_console_startup = 0
 let g:startify_disable_at_vimenter = 1
@@ -212,7 +211,6 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<CR>
 noremap <leader><leader> :tabnext<CR>
-noremap <leader>\| :tabprevious<CR>
 noremap <leader>] :tabnext<CR>
 noremap <leader>[ :tabprevious<CR>
 noremap <leader>+ :tabedit<CR>:Startify<CR>
@@ -267,6 +265,7 @@ noremap <C-n>c :enew<CR>
 noremap <C-n>b :MBEToggle<cr>
 
 " I type these wrong 50 times per day
+nnoremap <C-c> <C-a>
 nnoremap <C-a> ^
 nnoremap <C-e> $
 inoremap <C-a> <HOME>
@@ -283,7 +282,6 @@ noremap <leader>j :%!python3 ~/.dotfiles/format_json.py<cr>
 let NERDTreeQuitOnOpen=1
 " close nerdtree on quit vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 
 
 "colo gotham256 " colorscheme depends on plugins
