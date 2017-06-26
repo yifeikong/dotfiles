@@ -184,13 +184,10 @@ Plug 'pelodelfuego/vim-swoop'
 Plug 'solarnz/thrift.vim'
 Plug 'vim-python/python-syntax'
 Plug 'othree/yajs.vim'
-<<<<<<< Updated upstream
 " install exburtan-tags
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
-=======
 Plug 'rkulla/pydiction'
->>>>>>> Stashed changes
 if has('python')
     Plug 'ashisha/image.vim'
     Plug 'SirVer/ultisnips'
