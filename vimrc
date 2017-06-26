@@ -250,7 +250,6 @@ vnoremap / /\v
 noremap <F1> <esc>
 
 noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
-noremap <C-[> <C-t>
 
 noremap <C-q> :NERDTreeToggle<CR>
 noremap <leader>u :UltiSnipsEdit<CR>
