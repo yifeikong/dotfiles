@@ -116,7 +116,7 @@ let g:SimpylFold_docstring_preview = 1
 
 let g:tagbar_compact = 1
 let g:tagbar_show_linenumbers = 1
-nnoremap <leader>p :Tagbar<cr>
+nnoremap <C-m> :Tagbar<cr>
 nnoremap <C-]> g<C-]>
 
 let g:flake8_show_in_gutter = 1
