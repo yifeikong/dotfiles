@@ -32,6 +32,7 @@ install_z() {
 }
 
 install_vim() {
+    apt-get install exuberant-ctags
     # Vim, vimrc is inside dotfiles, but .vim files are outside
     mkdir -p $HOME/.vim
     if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
