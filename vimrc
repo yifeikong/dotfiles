@@ -116,7 +116,7 @@ let g:SimpylFold_docstring_preview = 1
 
 let g:tagbar_compact = 1
 let g:tagbar_show_linenumbers = 1
-nnoremap <C-m> :Tagbar<cr>
+nnoremap <C-l> :Tagbar<cr>
 nnoremap <C-]> g<C-]>
 
 let g:flake8_show_in_gutter = 1
@@ -190,6 +190,8 @@ Plug 'majutsushi/tagbar'
 Plug 'rkulla/pydiction'
 if has('python')
     Plug 'ashisha/image.vim'
+endif
+if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'davidhalter/jedi-vim'
     Plug 'honza/vim-snippets'
@@ -258,9 +260,7 @@ noremap <leader>u :UltiSnipsEdit<CR>
 noremap <leader>c :ccl<CR>
 
 noremap <C-j> 5j
-noremap <C-h> 5h
 noremap <C-k> 5k
-noremap <C-l> 5l
 
 noremap <C-n><C-p> :MBEbp<CR>
 noremap <C-n><C-n> :MBEbn<CR>
