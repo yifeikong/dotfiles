@@ -52,7 +52,7 @@ set mouse=a
 set splitright
 set splitbelow
 
-" for molokai, no need for that! 
+" for molokai, no need for that!
 " line ending color
 "au ColorScheme * highlight SpecialKey ctermfg=243
 " tab color
@@ -66,7 +66,7 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 " filetype fixes
 au BufRead,BufNewFile *.md set filetype=markdown
-au FileType yaml setlocal shiftwidth=2 tabstop=2 
+au FileType yaml setlocal shiftwidth=2 tabstop=2
 
 au FocusLost * :wa
 
@@ -123,6 +123,17 @@ let g:flake8_show_in_gutter = 1
 if !executable('flake8') " workaround for toutiao machine
     let g:flake8_cmd="/home/kongyifei.rocks/repos/ss_lib/python_package/lib/python2.7/site-packages/flake8"
 endif
+
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+
+autocmd FileWritePre * call TrimWhiteSpace()
+autocmd FileAppendPre * call TrimWhiteSpace()
+autocmd FilterWritePre * call TrimWhiteSpace()
+autocmd BufWritePre * call TrimWhiteSpace()
+
 
 "noremap <F7> :SyntasticCheck<CR>
 "noremap <F8> :SyntasticReset<CR>
@@ -324,3 +335,4 @@ if has('nvim')
     endfunction
     nnoremap <F4> :call Python_run()<CR>
 endif
+
