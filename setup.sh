@@ -27,13 +27,10 @@ install_flake8() {
     ln -sfv $DOTFILES_DIR/flake8 ~/.config/flake8
 }
 
-install_z() {
-    git submodule update --init --recursive
-}
-
 install_vim() {
     apt-get install exuberant-ctags
     # Vim, vimrc is inside dotfiles, but .vim files are outside
+    sudo apt-get install exuberant-ctags -y
     mkdir -p $HOME/.vim
     if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
         curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
