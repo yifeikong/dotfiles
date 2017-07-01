@@ -199,7 +199,7 @@ Plug 'othree/yajs.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'rkulla/pydiction'
-if has('python') || has('python3')
+if has('python')
     Plug 'ashisha/image.vim'
 endif
 if has('python') || has('python3')
