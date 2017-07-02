@@ -129,10 +129,12 @@ function TrimWhiteSpace()
   ''
 endfunction
 
-autocmd FileWritePre * call TrimWhiteSpace()
-autocmd FileAppendPre * call TrimWhiteSpace()
-autocmd FilterWritePre * call TrimWhiteSpace()
-autocmd BufWritePre * call TrimWhiteSpace()
+nnoremap <leader>t call TrimWhiteSpace()<cr>
+
+"autocmd FileWritePre * call TrimWhiteSpace()
+"autocmd FileAppendPre * call TrimWhiteSpace()
+"autocmd FilterWritePre * call TrimWhiteSpace()
+"autocmd BufWritePre * call TrimWhiteSpace()
 
 
 "noremap <F7> :SyntasticCheck<CR>
@@ -149,54 +151,49 @@ let g:ag_lhandler="botleft lopen"
 runtime macros/matchit.vim
 
 call plug#begin('~/.vim/plugged')
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'alvan/vim-php-manual'
-Plug 'ConradIrwin/vim-bracketed-paste'
+"Plug 'nathanaelkane/vim-indent-guides'  " show indent guides
+Plug 'ConradIrwin/vim-bracketed-paste'  " automatically escape paste, prevent from incorrect result, not working
 "Plug 'christoomey/vim-tmux-navigator'
-Plug 'airblade/vim-gitgutter'
-Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'  " show a more useful start page
 "Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
-Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'  " current colorscheme
 "Plug 'tomasr/molokai'
-Plug 'bling/vim-airline'
+Plug 'bling/vim-airline'  " the status bar
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-surround' " causing clipboard issue
-"Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/vimim'
-"Plug 'oplatek/Conque-Shell'
-Plug 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
-Plug 'cakebaker/scss-syntax.vim'
 "Plug 'ryanss/vim-hackernews' " bugs
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-Plug 'tmhedberg/SimpylFold'
+"Plug 'xolox/vim-misc'
+"Plug 'xolox/vim-session'
+"Plug 'tmhedberg/SimpylFold'
 "Plug 'vim-scripts/Conque-GDB' " not compatiable with vim-plug
 "Plug 'Rip-Rip/clang_complete'
 Plug 'ervandew/supertab'
 "Plug 'klen/python-mode'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 "Plug 'junegunn/vim-easy-align' " I literally don't know how to use
-Plug 'godlygeek/tabular'
+"Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
 "Plug 'jistr/vim-nerdtree-tabs'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'  " expand html tags
 "Plug 'fholgado/minibufexpl.vim'
-Plug 'rking/ag.vim'
+Plug 'rking/ag.vim'  " need to install ag
 "Plug 'scrooloose/syntastic'  " syntastic checking
 Plug 'guns/xterm-color-table.vim'
-Plug 'craigemery/vim-autotag'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
 "Plug 'nvie/vim-flake8'
 Plug 'Yggdroot/indentLine'
 Plug 'pelodelfuego/vim-swoop'
 Plug 'solarnz/thrift.vim'
-Plug 'vim-python/python-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'othree/yajs.vim'
-" install exburtan-tags
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'vim-python/python-syntax'
+Plug 'alvan/vim-php-manual'
+Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
 Plug 'majutsushi/tagbar'
 Plug 'rkulla/pydiction'
 if has('python')
