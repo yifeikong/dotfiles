@@ -117,9 +117,11 @@ done
 # load app installed in /opt/spider
 for app in thrift python; do
     if [[ -s /opt/spider/$app ]]; then
-        export PATH=$PATH:/opt/spider/$app/bin
+        export PATH=/opt/spider/$app/bin:$PATH
     fi
 done
+
+export PYTHONPATH=$HOME/repos/futile:$HOME/repos:$PTYHONPATH
 
 [[ -s ~/.dotfiles/local_bashrc ]] && source ~/.dotfiles/local_bashrc
 

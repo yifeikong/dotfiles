@@ -195,7 +195,6 @@ Plug 'vim-python/python-syntax'
 Plug 'alvan/vim-php-manual'
 Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
 Plug 'majutsushi/tagbar'
-Plug 'rkulla/pydiction'
 if has('python')
     Plug 'ashisha/image.vim'
 endif
@@ -208,7 +207,6 @@ endif
 
 call plug#end()
 
-let g:pydiction_location = '~/.vim/plugged/pydiction/complete-dict'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader><tab>"
