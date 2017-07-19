@@ -200,7 +200,7 @@ if has('python')
 endif
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
-    Plug 'davidhalter/jedi-vim'
+    "Plug 'davidhalter/jedi-vim'
     Plug 'honza/vim-snippets'
 endif
 
