@@ -41,9 +41,9 @@ set number                    " show line number
 set nowrap                      " auto reline
 set foldmethod=indent
 set foldnestmax=99
-set textwidth=120
+set textwidth=80
 set formatoptions=qrn1
-set colorcolumn=120           " 81th column colored
+set colorcolumn=80           " 81th column colored
 set list
 set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
 
