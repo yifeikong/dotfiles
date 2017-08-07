@@ -124,7 +124,7 @@ if !executable('flake8') " workaround for toutiao machine
     let g:flake8_cmd="/home/kongyifei.rocks/repos/ss_lib/python_package/lib/python2.7/site-packages/flake8"
 endif
 
-function TrimWhiteSpace()
+function! TrimWhiteSpace()
   %s/\s*$//
   ''
 endfunction
@@ -143,7 +143,10 @@ nnoremap <leader>t call TrimWhiteSpace()<cr>
 "autocmd BufWritePost *.py call Flake8() " automatically call flake8 when saving python files
 
 let g:ctrlp_max_files=0 " by default, ctrlp only caches 60,000 files
+let g:ctrlp_max_depth=40
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|pyc)$'
+let g:ctrlp_follow_symlinks=1
+let g:ctrlp_match_window = 'min:4,max:10,results:100'
 
 
 let g:ag_lhandler="botleft lopen"
@@ -293,6 +296,9 @@ noremap <leader>i :IndentLinesToggle<cr>
 noremap <leader>t :term<cr>
 
 noremap <leader>j :%!python3 ~/.dotfiles/format_json.py<cr>
+inoremap <C-u> <esc>viwUi
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " close nerdtree on open file
 let NERDTreeQuitOnOpen=1
