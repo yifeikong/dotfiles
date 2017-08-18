@@ -29,8 +29,8 @@ else
     alias v=vim
 fi
 alias t='tmux -2'
+alias ta='tmux -2 a'
 alias cd..='cd ..'
-alias bpy=bpython
 alias ipy=ipython
 alias py=python
 alias tmux='tmux -2'
@@ -102,12 +102,21 @@ _virtualenv_auto_activate() {
     fi
 }
 
+add_path_if_not_exists() {
+    # this is really some voodoo
+    path_to_add=$1
+    var_to_change=$2
+    [[ ":${!var_to_change}:" != *":$path_to_add:"* ]] && export $var_to_change="$path_to_add:${!var_to_change}"
+}
+
+
 export PROMPT_COMMAND=_virtualenv_auto_activate
 
 if uname | grep -q Darwin; then
     polipo socksParentProxy=localhost:1080 daemonise=true pidFile=$HOME/.polipo.pid logFile=/dev/null
     export ANDROID_HOME=$HOME/Library/Android/sdk
-    export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+    add_path_if_not_exists $ANDROID_HOME/tools "PATH"
+    add_path_if_not_exists $ANDROID_HOME/platform-tools "PATH"
 fi
 
 for f in $HOME/.dotfiles/completions/*.sh; do
@@ -117,7 +126,7 @@ done
 # load app installed in /opt/spider
 for app in thrift python; do
     if [[ -s /opt/spider/$app ]]; then
-        export PATH=/opt/spider/$app/bin:$PATH
+        add_path_if_not_exists "/opt/spider/$app/bin" "PATH"
     fi
 done
 
