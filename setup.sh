@@ -56,10 +56,10 @@ install_completions() {
 }
 
 install_pdbrc() {
-    ln -s $HOME/.dotfiles/pdbrc .pdbrc
+    ln -s $HOME/.dotfiles/pdbrc $HOME/.pdbrc
 }
 
-for prog in z tmux ag git fonts bashrc vim ssh completions flake8 pdbrc; do
+for prog in tmux ag git fonts bashrc vim ssh completions flake8 pdbrc; do
     if [ "$1" != "-y" ]; then
         echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
         read ok
