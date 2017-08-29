@@ -13,6 +13,7 @@ set cursorline
 set lazyredraw
 set backspace=indent,eol,start
 set nofoldenable
+set conceallevel=0
 
 
 " tab key related
@@ -215,8 +216,10 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader><tab>"
 let g:jedi#use_tabs_not_buffers=1
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+let g:vim_json_syntax_conceal = 0  " stupid indentline setting json conceals
 
 autocmd FileType python setlocal completeopt-=preview " disable doc window in jedi-vim
+autocmd Filetype json let g:indentLine_setConceal = 0
 
 " mappings
 cmap w!! w !sudo tee %
