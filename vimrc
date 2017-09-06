@@ -109,7 +109,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
 
@@ -138,8 +138,8 @@ nnoremap <leader>t call TrimWhiteSpace()<cr>
 "autocmd BufWritePre * call TrimWhiteSpace()
 
 
-"noremap <F7> :SyntasticCheck<CR>
-"noremap <F8> :SyntasticReset<CR>
+noremap <F7> :SyntasticCheck<CR>
+noremap <F8> :SyntasticReset<CR>
 
 "autocmd BufWritePost *.py call Flake8() " automatically call flake8 when saving python files
 
@@ -183,7 +183,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'  " expand html tags
 "Plug 'fholgado/minibufexpl.vim'
 Plug 'rking/ag.vim'  " need to install ag
-"Plug 'scrooloose/syntastic'  " syntastic checking
+Plug 'scrooloose/syntastic'  " syntastic checking
 Plug 'guns/xterm-color-table.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
@@ -240,8 +240,9 @@ noremap <leader>[ :tabprevious<CR>
 noremap <leader>+ :tabedit<CR>:Startify<CR>
 noremap <leader>h :Startify<CR>
 
-noremap <leader>v :source ~/.vimrc<CR>
-noremap <leader>V :w<CR>:source ~/.vimrc<CR>:PlugInstall<CR>
+noremap <leader>r :source ~/.vimrc<CR>
+noremap <leader>R :w<CR>:source ~/.vimrc<CR>:PlugInstall<CR>
+noremap <leader>v :tabe ~/.vimrc<CR>
 noremap <leader><Space> :noh<CR>
 noremap <leader>q :wq<CR>
 noremap <leader>a :Ag<Space>
