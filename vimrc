@@ -91,7 +91,7 @@ let g:session_autosave='yes'
 let g:session_autoload='no'
 
 
-let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o', '\.la']
+let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o', '\.la', 'tags']
 "let NERDTreeWinPos='right'
 let g:nerdtree_tabs_open_on_console_startup = 0
 let g:startify_disable_at_vimenter = 1
@@ -183,7 +183,7 @@ Plug 'ervandew/supertab'
 "Plug 'junegunn/vim-easy-align' " I literally don't know how to use
 "Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
-"Plug 'jistr/vim-nerdtree-tabs'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mattn/emmet-vim'  " expand html tags
 "Plug 'fholgado/minibufexpl.vim'
 Plug 'rking/ag.vim'  " need to install ag
@@ -272,7 +272,7 @@ noremap <F1> <esc>
 
 noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
-noremap <C-q> :NERDTreeToggle<CR>
+noremap <C-q> :NERDTreeTabsToggle<CR>
 noremap <leader>u :UltiSnipsEdit<CR>
 noremap <leader>c :ccl<CR>
 
@@ -302,6 +302,8 @@ vnoremap <C-e> $
 
 noremap <leader>i :IndentLinesToggle<cr>
 noremap <leader>t :term<cr>
+vmap <leader>y :w! /tmp/vim_clipboard<CR>
+nmap <leader>p :r! cat /tmp/vim_clipboard<CR>
 
 noremap <leader>j :%!python3 ~/.dotfiles/format_json.py<cr>
 inoremap <C-u> <esc>viwUi
