@@ -68,6 +68,8 @@ autocmd QuickFixCmdPost    l* nested lwindow
 " filetype fixes
 au BufRead,BufNewFile *.md set filetype=markdown
 au FileType yaml setlocal shiftwidth=2 tabstop=2
+au FileType vue setlocal shiftwidth=2 tabstop=2
+au FileType javascript setlocal shiftwidth=2 tabstop=2
 
 au FocusLost * :wa
 
@@ -91,7 +93,7 @@ let g:session_autosave='yes'
 let g:session_autoload='no'
 
 
-let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o', '\.la', 'tags']
+let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o$', '\.la$', '^tags']
 "let NERDTreeWinPos='right'
 let g:nerdtree_tabs_open_on_console_startup = 0
 let g:startify_disable_at_vimenter = 1
@@ -135,6 +137,7 @@ function! TrimWhiteSpace()
 endfunction
 
 nnoremap <leader>t call TrimWhiteSpace()<cr>
+nnoremap <leader>s set paste!<cr>
 
 "autocmd FileWritePre * call TrimWhiteSpace()
 "autocmd FileAppendPre * call TrimWhiteSpace()
@@ -159,6 +162,7 @@ let g:ag_lhandler="botleft lopen"
 runtime macros/matchit.vim
 
 call plug#begin('~/.vim/plugged')
+Plug 'posva/vim-vue'
 "Plug 'nathanaelkane/vim-indent-guides'  " show indent guides
 Plug 'ConradIrwin/vim-bracketed-paste'  " automatically escape paste, prevent from incorrect result, not working
 "Plug 'christoomey/vim-tmux-navigator'
@@ -251,7 +255,7 @@ noremap <leader><Space> :noh<CR>
 noremap <leader>q :wq<CR>
 noremap <leader>a :Ag<Space>
 noremap <leader>m :MBEToggle<cr>
-noremap <leader>s :set spell!<CR>
+noremap <leader>S :set spell!<CR>
 
 " like tmux
 noremap <C-w>m <C-w>\|
@@ -259,8 +263,6 @@ noremap <C-w>M <C-w>_
 noremap <C-w>\| <C-w>v
 noremap <C-w>- <C-w>s
 
-noremap <leader>r :%s/
-noremap <leader>R :'<,'>s/
 noremap <F3> :%s/
 noremap g<F3> :s/
 

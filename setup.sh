@@ -59,7 +59,11 @@ install_pdbrc() {
     ln -s $HOME/.dotfiles/pdbrc $HOME/.pdbrc
 }
 
-for prog in tmux ag git fonts bashrc vim ssh completions flake8 pdbrc; do
+install_pylintrc() {
+    ln -s $HOME/.dotfiles/pylintrc $HOME/.pylintrc
+}
+
+for prog in tmux ag git fonts bashrc vim ssh completions flake8 pdbrc pylintrc; do
     if [ "$1" != "-y" ]; then
         echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
         read ok
