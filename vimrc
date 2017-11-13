@@ -85,7 +85,7 @@ set hlsearch
 let g:vimim_cloud=-1
 let g:vimim_toggle='pinyin'
 let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
+"let g:airline_theme='solarized'
 set noshowmode
 set laststatus=2
 
@@ -203,7 +203,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'othree/yajs.vim'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'vim-python/python-syntax'
+"Plug 'vim-python/python-syntax'
 Plug 'alvan/vim-php-manual'
 Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
 Plug 'majutsushi/tagbar'
@@ -319,8 +319,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 
 "colo gotham256 " colorscheme depends on plugins
-set background=dark
-colo solarized
+"set background=dark
+"colo solarized
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>

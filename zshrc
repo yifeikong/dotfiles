@@ -93,3 +93,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 plugins=(brew common-aliasesgit debian django pylint python tmux)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
