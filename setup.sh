@@ -27,6 +27,10 @@ install_flake8() {
     ln -sfv $DOTFILES_DIR/flake8 ~/.config/flake8
 }
 
+install_zsh() {
+    ls -sfv $DOTFILES_DIR/zshrc ~/.zshrc
+}
+
 install_vim() {
     apt-get install exuberant-ctags
     # Vim, vimrc is inside dotfiles, but .vim files are outside
