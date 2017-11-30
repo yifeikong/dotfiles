@@ -94,4 +94,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 plugins=(brew common-aliasesgit debian django pylint python tmux)
 
+export PYTHONPATH=$PYTHONPATH:$HOME/repos/futile:$HOME/repos
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -241,7 +241,6 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<CR>
-noremap <leader><leader> :tabnext<CR>
 noremap <leader>] :tabnext<CR>
 noremap <leader>[ :tabprevious<CR>
 noremap <leader>+ :tabedit<CR>:Startify<CR>
@@ -255,6 +254,25 @@ noremap <leader>q :wq<CR>
 noremap <leader>a :Ag<Space>
 noremap <leader>m :MBEToggle<cr>
 noremap <leader>S :set spell!<CR>
+noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
+
+noremap <leader><leader> :NERDTreeToggle<CR>
+noremap <leader>u :UltiSnipsEdit<CR>
+noremap <leader>c :ccl<CR>
+
+noremap <leader>i :IndentLinesToggle<cr>
+vmap <leader>y :w! /tmp/vim_clipboard<CR>
+nmap <leader>p :r! cat /tmp/vim_clipboard<CR>
+
+noremap <leader>j :%!python3 ~/.dotfiles/format_json.py<cr>
+inoremap <C-u> <esc>viwUi
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
+au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
+nnoremap <leader>t call TrimWhiteSpace()<cr>
+nnoremap <leader>s set paste!<cr>
 
 " like tmux
 noremap <C-w>m <C-w>\|
@@ -271,11 +289,6 @@ vnoremap / /\v
 
 noremap <F1> <esc>
 
-noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
-
-noremap <leader>. :NERDTreeToggle<CR>
-noremap <leader>u :UltiSnipsEdit<CR>
-noremap <leader>c :ccl<CR>
 
 noremap <C-j> 5j
 noremap <C-k> 5k
@@ -301,15 +314,6 @@ inoremap <C-e> <END>
 vnoremap <C-a> ^
 vnoremap <C-e> $
 
-noremap <leader>i :IndentLinesToggle<cr>
-noremap <leader>t :term<cr>
-vmap <leader>y :w! /tmp/vim_clipboard<CR>
-nmap <leader>p :r! cat /tmp/vim_clipboard<CR>
-
-noremap <leader>j :%!python3 ~/.dotfiles/format_json.py<cr>
-inoremap <C-u> <esc>viwUi
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " close nerdtree on open file
 let NERDTreeQuitOnOpen=1
@@ -323,10 +327,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 colo delek
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 
-au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
-au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
-nnoremap <leader>t call TrimWhiteSpace()<cr>
-nnoremap <leader>s set paste!<cr>
 
 set mouse=a
 
