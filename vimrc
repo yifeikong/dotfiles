@@ -136,8 +136,6 @@ function! TrimWhiteSpace()
   ''
 endfunction
 
-nnoremap <leader>t call TrimWhiteSpace()<cr>
-nnoremap <leader>s set paste!<cr>
 
 "autocmd FileWritePre * call TrimWhiteSpace()
 "autocmd FileAppendPre * call TrimWhiteSpace()
@@ -196,7 +194,7 @@ Plug 'guns/xterm-color-table.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
 "Plug 'nvie/vim-flake8'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 Plug 'pelodelfuego/vim-swoop'
 Plug 'solarnz/thrift.vim'
 Plug 'pangloss/vim-javascript'
@@ -207,6 +205,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'alvan/vim-php-manual'
 Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
 Plug 'majutsushi/tagbar'
+Plug 'rust-lang/rust.vim'
 if has('python')
     Plug 'ashisha/image.vim'
 endif
@@ -274,7 +273,7 @@ noremap <F1> <esc>
 
 noremap <leader>a :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 
-noremap <C-q> :NERDTreeTabsToggle<CR>
+noremap <leader>. :NERDTreeToggle<CR>
 noremap <leader>u :UltiSnipsEdit<CR>
 noremap <leader>c :ccl<CR>
 
@@ -321,10 +320,13 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "colo gotham256 " colorscheme depends on plugins
 "set background=dark
 "colo solarized
+colo delek
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
 au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
+nnoremap <leader>t call TrimWhiteSpace()<cr>
+nnoremap <leader>s set paste!<cr>
 
 set mouse=a
 

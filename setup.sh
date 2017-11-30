@@ -4,6 +4,7 @@ DOTFILES_DIR=$HOME/.dotfiles
 
 install_tmux() {
     ln -sfv $DOTFILES_DIR/tmux.conf ~/.tmux.conf
+    git clone https://github.com/tmux-plugins/tmux-resurrect tmux-resurrect
 }
 
 install_ag() {

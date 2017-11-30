@@ -113,6 +113,7 @@ add_path_if_not_exists() {
 export PROMPT_COMMAND=_virtualenv_auto_activate
 
 add_path_if_not_exists $HOME/.local/bin "PATH"
+add_path_if_not_exists $HOME/.cargo/bin "PATH"
 if uname | grep -q Darwin; then
     polipo socksParentProxy=localhost:1080 daemonise=true pidFile=$HOME/.polipo.pid logFile=/dev/null
     export ANDROID_HOME=$HOME/Library/Android/sdk
