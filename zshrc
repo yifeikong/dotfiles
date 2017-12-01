@@ -97,3 +97,29 @@ plugins=(brew common-aliasesgit debian django pylint python tmux)
 export PYTHONPATH=$PYTHONPATH:$HOME/repos/futile:$HOME/repos
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+DEFAULT_VENV_NAME=".venv"
+alias create-venv2="virtualenv $DEFAULT_VENV_NAME"
+alias create-venv="python3 -m venv $DEFAULT_VENV_NAME"
+alias activate="source $DEFAULT_VENV_NAME/bin/activate"
+
+export THE_PS1=$PS1
+_virtualenv_auto_activate() {
+    if [ -e ".venv" ]; then
+        # Check to see if already activated to avoid redundant activating
+        if [ "$VIRTUAL_ENV" != "$(pwd -P)/.venv" ]; then
+            export VENV_ROOT=$PWD
+            VIRTUAL_ENV_DISABLE_PROMPT=1
+            source .venv/bin/activate
+            export PS1="[v]$THE_PS1"
+        fi
+    else
+        if [ "${PWD##$VENV_ROOT}" = "${PWD}" ]; then
+            # should check if parent exists .venv
+            export PS1=$THE_PS1
+            type deactivate &> /dev/null && deactivate
+        fi
+    fi
+}
+
+precmd_functions=(_virtualenv_auto_activate)
