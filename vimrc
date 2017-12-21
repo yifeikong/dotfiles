@@ -89,6 +89,8 @@ let g:airline_powerline_fonts=1
 set noshowmode
 set laststatus=2
 
+let g:ctrlp_extensions = ['tag']
+
 let g:session_autosave='yes'
 let g:session_autoload='no'
 
