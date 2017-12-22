@@ -82,6 +82,9 @@ set hlsearch
 
 " Plugins
 "
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 let g:vimim_cloud=-1
 let g:vimim_toggle='pinyin'
 let g:airline_powerline_fonts=1
