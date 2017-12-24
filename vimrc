@@ -109,20 +109,18 @@ let g:miniBufExplAutoStart = 0
 let g:miniBufExplCycleArround = 1
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 1
-let g:syntastic_mode_map = {
-        \ "mode": "passive",
-        \ "active_filetypes": [],
-        \ "passive_filetypes": [] }
+"let g:syntastic_always_populate_loc_list = 4
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_python_checkers = ['pylint']
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_warning_symbol = '!'
+"let g:syntastic_mode_map = {
+"        \ "mode": "passive",
+"        \ "active_filetypes": [],
+"        \ "passive_filetypes": [] }
 
 let g:SimpylFold_docstring_preview = 1
 
@@ -194,7 +192,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'mattn/emmet-vim'  " expand html tags
 "Plug 'fholgado/minibufexpl.vim'
 Plug 'rking/ag.vim'  " need to install ag
-Plug 'scrooloose/syntastic'  " syntastic checking
+"Plug 'scrooloose/syntastic'  " syntastic checking
 Plug 'guns/xterm-color-table.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
@@ -211,6 +209,7 @@ Plug 'alvan/vim-php-manual'
 Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
 Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
+Plug 'w0rp/ale'
 if has('python')
     Plug 'ashisha/image.vim'
 endif
