@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="amuse"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -123,3 +123,69 @@ _virtualenv_auto_activate() {
 }
 
 precmd_functions=(_virtualenv_auto_activate)
+
+
+export EDITOR='vim'
+[ -z "$TMUX" ] && export TERM='xterm-256color'
+if type nvim &> /dev/null; then
+    alias vi=nvim
+    alias v=nvim
+    alias vim=nvim
+else
+    alias vi=vim
+    alias v=vim
+fi
+alias t='tmux -2'
+alias ta='tmux -2 a'
+alias cd..='cd ..'
+alias ipy=ipython
+alias py=python
+alias tmux='tmux -2'
+alias g='git'
+alias ll='ls -alh'
+alias :q='exit'
+alias :wq='exit'
+alias mkdirp='mkdir -p'
+alias hgrep='history | grep'
+alias shn='sudo shutdown -h now'
+alias mirror='wget -E -H -k -K -p'
+alias prettyjson='python -m json.tool'
+alias def='python3 ~/.dotfiles/def.py'
+alias reload='source ~/.bashrc && echo ".bashrc reloaded"'
+alias dc='docker-compose'
+alias spaces='du -sh $(ls)'
+alias sudo='sudo ' # magic trick to bring aliases to sudo
+alias px="proxychains4"
+alias dkr="docker"
+alias lcurl='curl --noproxy localhost'
+alias save-last-command='history | tail -n 2 | head -n 1 >> ~/.dotfiles/useful_commands'
+alias nv='nvim'
+alias aj='autojump'
+alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+
+
+add_path_if_not_exists() {
+    # this is really some voodoo
+    path_to_add=$1
+    var_to_change=$2
+    [[ ":${!var_to_change}:" != *":$path_to_add:"* ]] && export $var_to_change="$path_to_add:${!var_to_change}"
+}
+
+
+add_path_if_not_exists $HOME/.local/bin "PATH"
+add_path_if_not_exists $HOME/.cargo/bin "PATH"
+if uname | grep -q Darwin; then
+    polipo socksParentProxy=localhost:1080 daemonise=true pidFile=$HOME/.polipo.pid logFile=/dev/null
+    export ANDROID_HOME=$HOME/Library/Android/sdk
+    add_path_if_not_exists $ANDROID_HOME/tools "PATH"
+    add_path_if_not_exists $ANDROID_HOME/platform-tools "PATH"
+fi
+
+for f in $HOME/.dotfiles/completions/*.sh; do
+    source "$f"
+done
+
+
+export PYTHONPATH=$HOME/repos/futile:$HOME/repos:$PTYHONPATH
+
+[[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc

@@ -29,7 +29,8 @@ install_flake8() {
 }
 
 install_zsh() {
-    ls -sfv $DOTFILES_DIR/zshrc ~/.zshrc
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    ln -sfv $DOTFILES_DIR/zshrc ~/.zshrc
 }
 
 install_vim() {
@@ -68,7 +69,7 @@ install_pylintrc() {
     ln -s $HOME/.dotfiles/pylintrc $HOME/.pylintrc
 }
 
-for prog in tmux ag git fonts bashrc vim ssh completions flake8 pdbrc pylintrc; do
+for prog in zsh tmux ag git fonts bashrc vim ssh completions flake8 pdbrc pylintrc; do
     if [ "$1" != "-y" ]; then
         echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
         read ok
