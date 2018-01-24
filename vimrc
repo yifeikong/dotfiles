@@ -159,6 +159,7 @@ let g:ctrlp_match_window = 'min:4,max:10,results:100'
 
 
 let g:ag_lhandler="botleft lopen"
+let g:ale_python_pylint_options = '--rcfile=~/.pylintrc'
 
 runtime macros/matchit.vim
 
