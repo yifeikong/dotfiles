@@ -187,5 +187,6 @@ done
 
 
 export PYTHONPATH=$HOME/repos/futile:$HOME/repos:$PTYHONPATH
+export GOPATH=$HOME/repos
 
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc

@@ -164,6 +164,7 @@ let g:ale_python_pylint_options = '--rcfile=~/.pylintrc'
 runtime macros/matchit.vim
 
 call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'posva/vim-vue'
 "Plug 'nathanaelkane/vim-indent-guides'  " show indent guides
 Plug 'ConradIrwin/vim-bracketed-paste'  " automatically escape paste, prevent from incorrect result, not working
@@ -311,7 +312,6 @@ noremap <C-n>c :enew<CR>
 noremap <C-n>b :MBEToggle<cr>
 
 " I type these wrong 50 times per day
-nnoremap <C-c> <C-a>
 nnoremap <C-a> ^
 nnoremap <C-e> $
 inoremap <C-a> <HOME>
@@ -328,8 +328,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "colo gotham256 " colorscheme depends on plugins
 "set background=dark
-"colo solarized
-colo delek
+colo solarized
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 
 
