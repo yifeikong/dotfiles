@@ -9,15 +9,18 @@ set history=1000
 set autoread                  " auto reload when modified by other apps
 set showmode
 set showcmd
-set wildmenu
 set shortmess=I
+set wildmenu
 set wildmode=list:longest
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.o
 set visualbell
 set cursorline
 set lazyredraw
 set backspace=indent,eol,start
 set nofoldenable
 set conceallevel=0
+set ttyfast
+set completeopt=longest,menu  " vim tip 1228
 
 " tab key related
 set tabstop=4
@@ -43,6 +46,8 @@ set undofile                  " infinite undo
 set number                    " show line number
 "set rnu                       " relative number
 set nowrap                      " auto reline
+set formatoptions+=m " 如遇Unicode值大于255的文本，不必等到空格再折行
+set formatoptions+=B " 合并两行中文时，不在中间加空格
 set foldmethod=indent
 set foldnestmax=99
 set textwidth=80
@@ -53,10 +58,11 @@ set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
 
 set mouse=a
 
+set magic
+
 set splitright
 set splitbelow
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.o
 
 " for molokai, no need for that!
 " line ending color
@@ -74,7 +80,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au FileType yaml setlocal shiftwidth=2 tabstop=2
 au FileType vue setlocal shiftwidth=2 tabstop=2
 au FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType python setlocal completeopt-=preview " disable doc window in jedi-vim
 autocmd Filetype json let g:indentLine_setConceal=0
 
 " Search related
@@ -197,6 +202,8 @@ Plug 'altercation/vim-colors-solarized'  " current colorscheme
 Plug 'tomasr/molokai'
 
 " misc
+Plug 'tpope/vim-commentary'
+Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/vimim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
@@ -231,6 +238,9 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<CR>
+let g:last_active_tab = 1
+nnoremap <silent> <leader>p :execute 'tabnext ' . g:last_active_tab<cr>
+autocmd TabLeave * let g:last_active_tab = tabpagenr()
 
 noremap <leader><leader> :tabnext<CR>
 noremap <leader>] :tabnext<CR>
@@ -296,6 +306,12 @@ inoremap <C-a> <HOME>
 inoremap <C-e> <END>
 vnoremap <C-a> ^
 vnoremap <C-e> $
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+vnoremap < <gv
+vnoremap > >gv
 
 " close quick fix if it's last window
 aug QFClose
