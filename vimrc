@@ -212,7 +212,6 @@ call plug#end()
 colo solarized  " colorscheme depends on plugins
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 
-
 "*******************************************************************************
 "*                                   mappings                                  *
 "*******************************************************************************
@@ -256,6 +255,7 @@ au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
 noremap <leader>c :cclose<CR>
 nnoremap <leader>g :ALEGoToDefinition<CR>
 nnoremap <leader>G :ALEGoToDefinitionInTab<CR>
+nnoremap <leader>H :tabe<CR>:HackerNews<CR>
 nnoremap <leader>i :IndentLinesToggle<CR>
 nnoremap <leader>j :%!python3 ~/.dotfiles/format_json.py<CR>
 nnoremap <leader>m :call TrimWhiteSpace()<CR>
