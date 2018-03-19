@@ -337,3 +337,5 @@ if has('nvim')
     endfunction
     nnoremap <F6> :call Python_run()<CR>
 endif
+
+set guifont=Monaco\ for\ Powerline:h12
