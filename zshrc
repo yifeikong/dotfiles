@@ -163,27 +163,16 @@ alias nv='nvim'
 alias aj='autojump'
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
 
-
-add_path_if_not_exists() {
-    # this is really some voodoo
-    path_to_add=$1
-    var_to_change=$2
-    [[ ":${!var_to_change}:" != *":$path_to_add:"* ]] && export $var_to_change="$path_to_add:${!var_to_change}"
-}
-
-
-add_path_if_not_exists $HOME/.local/bin "PATH"
-add_path_if_not_exists $HOME/.cargo/bin "PATH"
+typeset -U path
+path+=($HOME/.local/bin)
+path+=($HOME/.cargo/bin)
+path+=(/usr/local/go/bin)
 if uname | grep -q Darwin; then
     polipo socksParentProxy=localhost:1080 daemonise=true pidFile=$HOME/.polipo.pid logFile=/dev/null
     export ANDROID_HOME=$HOME/Library/Android/sdk
-    add_path_if_not_exists $ANDROID_HOME/tools "PATH"
-    add_path_if_not_exists $ANDROID_HOME/platform-tools "PATH"
+    path+=($ANDROID_HOME/tools)
+    path+=($ANDROID_HOME/platform-tools)
 fi
-
-for f in $HOME/.dotfiles/completions/*.sh; do
-    source "$f"
-done
 
 
 export PYTHONPATH=$HOME/repos/futile:$HOME/repos:$PTYHONPATH
