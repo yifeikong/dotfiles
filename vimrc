@@ -55,6 +55,7 @@ set formatoptions=qrn1
 set colorcolumn=81         " 81th column colored
 set list
 set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
+au FileType go set listchars=tab:\ \ ,trail:·,extends:>,precedes:<
 
 set mouse=a
 
@@ -80,7 +81,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au FileType yaml setlocal shiftwidth=2 tabstop=2
 au FileType vue setlocal shiftwidth=2 tabstop=2
 au FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd Filetype json let g:indentLine_setConceal=0
+au Filetype json let g:indentLine_setConceal=0
 
 " Search related
 set ignorecase
@@ -202,13 +203,13 @@ Plug 'altercation/vim-colors-solarized'  " current colorscheme
 Plug 'tomasr/molokai'
 
 " misc
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'  " gc<motion> to comment
 Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/vimim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
 Plug 'godlygeek/tabular'
-Plug 'nathanaelkane/vim-indent-guides'
+au FileType python Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/vim-hackernews'
 if has('python')
     Plug 'ashisha/image.vim'
@@ -267,6 +268,7 @@ nnoremap <leader>g :ALEGoToDefinition<CR>
 nnoremap <leader>G :ALEGoToDefinitionInTab<CR>
 nnoremap <leader>H :tabe<CR>:HackerNews<CR>
 nnoremap <leader>i :IndentLinesToggle<CR>
+nnoremap <leader>I :GoImports<CR>
 nnoremap <leader>j :%!python3 ~/.dotfiles/format_json.py<CR>
 nnoremap <leader>m :call TrimWhiteSpace()<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
