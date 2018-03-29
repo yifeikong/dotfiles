@@ -229,15 +229,30 @@ alias save-last-command='history | tail -n 2 | head -n 1 >> ~/.dotfiles/useful_c
 alias nv='nvim'
 alias aj='autojump'
 
+function proxy {
+    if [[ $1 = "on" ]]; then
+        export http_proxy=http://127.0.0.1:1087
+        export https_proxy=http://127.0.0.1:1087
+    elif [[ $1 = "off" ]]; then
+        unset http_proxy
+        unset http_proxy
+    else
+        echo -n "Usage: proxy [on|off] "
+    fi
+    echo http_proxy=$http_proxy https_proxy=$https_proxy
+}
+
 typeset -U path
 path+=($HOME/.local/bin)
 path+=($HOME/.cargo/bin)
 path+=(/usr/local/go/bin)
+path+=($HOME/repos/bin)
+path+=($HOME/.dotfiles/bin)
 if uname | grep -q Darwin; then
-    polipo socksParentProxy=localhost:1080 daemonise=true pidFile=$HOME/.polipo.pid logFile=/dev/null
     export ANDROID_HOME=$HOME/Library/Android/sdk
     path+=($ANDROID_HOME/tools)
     path+=($ANDROID_HOME/platform-tools)
+    proxy on
 fi
 
 
