@@ -67,6 +67,7 @@ antigen bundle nojhan/liquidprompt
 
 antigen bundle willghatch/zsh-cdr
 antigen bundle zsh-users/zaw
+antigen bundle wfxr/forgit
 
 # uncomment the line below to enable theme
 antigen theme candy
@@ -167,6 +168,22 @@ zstyle ':completion:*:*sh:*:' tag-order files
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND='fd --type f'
+export FZF_ALT_C_COMMAND='fd --type d'
+export FZF_COMPLETION_TRIGGER=''
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border --prompt '>>>' \
+    --bind 'alt-j:preview-down,alt-k:preview-up,alt-v:execute(vi {})+abort,ctrl-y:execute-silent(cat {} | pbcopy)+abort' \
+    --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null'"
+export FZF_CTRL_T_OPTS=$FZF_DEFAULT_OPTS
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window hidden:wrap --bind '?:toggle-preview'"
+export FZF_ALT_C_OPTS="--height 40% --reverse --border prompt '>>>' \
+    --bind 'alt-j:preview-down,alt-k:preview-up' \
+    --preview 'tree -C {}'"
+bindkey '^Y' fzf-completion
+bindkey '^I' $fzf_default_completion
+[ -f ~/.dotfiles/lib/fzf-extras.sh ] && source ~/.dotfiles/lib/fzf-extras.sh
+
 DEFAULT_VENV_NAME=".venv"
 alias create-venv2="virtualenv $DEFAULT_VENV_NAME"
 alias create-venv="python3 -m venv $DEFAULT_VENV_NAME"
@@ -227,15 +244,15 @@ alias px="proxychains4"
 alias lcurl='curl --noproxy localhost'
 alias save-last-command='history | tail -n 2 | head -n 1 >> ~/.dotfiles/useful_commands'
 alias nv='nvim'
-alias aj='autojump'
 
 function proxy {
     if [[ $1 = "on" ]]; then
+        # proxy offered by local shadowsocks
         export http_proxy=http://127.0.0.1:1087
         export https_proxy=http://127.0.0.1:1087
     elif [[ $1 = "off" ]]; then
         unset http_proxy
-        unset http_proxy
+        unset https_proxy
     else
         echo -n "Usage: proxy [on|off] "
     fi
@@ -246,7 +263,6 @@ typeset -U path
 path+=($HOME/.local/bin)
 path+=($HOME/.cargo/bin)
 path+=(/usr/local/go/bin)
-path+=($HOME/repos/bin)
 path+=($HOME/.dotfiles/bin)
 if uname | grep -q Darwin; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -255,8 +271,8 @@ if uname | grep -q Darwin; then
     proxy on
 fi
 
-
 export PYTHONPATH=$HOME/repos/futile:$HOME/repos:$PTYHONPATH
-export GOPATH=$HOME/repos
+export GOPATH=$HOME/.go  # with vgo, we don't have to put files in GOPATH
+path+=($GOPATH/bin)
 
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc
