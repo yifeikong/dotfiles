@@ -53,3 +53,5 @@
     commit = yellow bold
     old = red bold
     whitespace = red reverse
+[diff-so-fancy]
+	useUnicodeRuler = false

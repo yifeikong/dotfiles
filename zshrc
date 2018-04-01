@@ -263,6 +263,7 @@ path+=($HOME/.local/bin)
 path+=($HOME/.cargo/bin)
 path+=(/usr/local/go/bin)
 path+=($HOME/.dotfiles/bin)
+path+=($HOME/.linuxbrew/bin)
 if uname | grep -q Darwin; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
     path+=($ANDROID_HOME/tools)

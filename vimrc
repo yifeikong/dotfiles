@@ -37,6 +37,9 @@ set fenc=utf-8
 set hidden
 set background=dark
 syntax on
+scriptencoding utf-8
+set encoding=utf-8
+
 
 " undos
 set undodir=~/.vim/undodir    " put .un~ files together
