@@ -29,7 +29,6 @@ install_flake8() {
 }
 
 install_zsh() {
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     ln -sfv $DOTFILES_DIR/zshrc ~/.zshrc
 }
 
@@ -37,11 +36,6 @@ install_vim() {
     apt-get install exuberant-ctags
     # Vim, vimrc is inside dotfiles, but .vim files are outside
     sudo apt-get install exuberant-ctags -y
-    mkdir -p $HOME/.vim
-    if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
-        curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    fi
     ln -sfv $DOTFILES_DIR/vimrc $HOME/.vimrc # vimrc
     mkdir -p $HOME/.vim/autoload
     mkdir -p $HOME/.vim/undodir
@@ -80,5 +74,4 @@ for prog in zsh tmux ag git fonts bashrc vim ssh completions flake8 pdbrc pylint
     echo "  => installing $prog config"
     install_$prog #call the install method
 done
-
 
