@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+print -P "%F{red}C-f  Move forward%f"
+print -P "%F{red}C-b  Move backward%f"
+print -P "%F{red}C-p  Move up%f"
+print -P "%F{red}C-n  Move down%f"
+print -P "%F{red}C-a  Jump to beginning of line%f"
+print -P "%F{red}C-e  Jump to end of line%f"
+print -P "%F{red}C-d  Delete forward%f"
+print -P "%F{red}C-h  Delete backward%f"
+print -P "%F{red}C-k  Delete forward to end of line%f"
+print -P "%F{red}C-u  Delete entire line%f"
+print -P "%F{red}C-t  Fuzzy find files%f"
+print -P "%F{red}C-r  Reverse fuzzy find history%f"
+print -P "%F{red}C-y  Fuzzy completions%f"
+print -P "%F{red}A-c  Fuzzy cd%f"

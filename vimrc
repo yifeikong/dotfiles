@@ -271,7 +271,7 @@ nnoremap <leader>G :ALEGoToDefinitionInTab<CR>
 nnoremap <leader>H :tabe<CR>:HackerNews<CR>
 nnoremap <leader>i :IndentLinesToggle<CR>
 nnoremap <leader>I :GoImports<CR>
-nnoremap <leader>j :%!python3 ~/.dotfiles/format_json.py<CR>
+nnoremap <leader>j :%!json_format<CR>  " rely on ~/.dotfiles/bin/json_format
 nnoremap <leader>m :call TrimWhiteSpace()<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>q :wq<CR>
