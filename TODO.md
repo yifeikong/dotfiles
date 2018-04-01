@@ -1,0 +1,2 @@
+- [x] Automantically install vim plugins if not.
+- [ ] fix setup.sh
