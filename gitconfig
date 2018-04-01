@@ -33,6 +33,7 @@
     branch = auto
     status = auto
     diff = auto
+    ui = true
 
 [help]
     autocorrect = -1
@@ -40,3 +41,15 @@
     tool = vimdiff3
 [core]
     excludesfile = ~/.dotfiles/gitignore_global
+    pager = diff-so-fancy | less --tabs=4 -RFX
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[color "diff"]
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    whitespace = red reverse
