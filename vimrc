@@ -175,6 +175,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'alvan/vim-php-manual'
 Plug 'rust-lang/rust.vim'
 Plug 'tmhedberg/SimpylFold'  " pythonic fold
+Plug 'sheerun/vim-polyglot'
 
 " enhancements
 Plug 'mhinz/vim-startify'
@@ -182,13 +183,14 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'  " <leader>t
 
 " prompt
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'rking/ag.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf'}  " install in ~/.fzf and only for vim
+Plug 'junegunn/fzf.vim'  " full fzf support in vim
 Plug 'w0rp/ale'
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
@@ -280,6 +282,15 @@ nnoremap <leader>t :Tagbar<CR>
 nnoremap <leader>T :Tabularize
 vnoremap <leader>T :Tabularize
 nnoremap <leader><space> :noh<CR>
+
+" fzf related
+nnoremap gff :Files<CR>
+nnoremap gfc :Commits<CR>
+nnoremap gfa :Ag<CR>
+nnoremap gfl :Lines<CR>
+nnoremap gft :Tags<CR>
+"nnoremap gfs :Snippets<CR>
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " cross vim copy and paste
 vmap <leader>y :w! /tmp/vim_clipboard<CR>
