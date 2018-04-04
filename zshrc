@@ -167,30 +167,13 @@ zstyle ':completion:*:*sh:*:' tag-order files
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.dotfiles/fzf.conf ] && source ~/.dotfiles/fzf.conf
 
-export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_CTRL_T_COMMAND='fd --type f'
-export FZF_ALT_C_COMMAND='fd --type d'
-export FZF_COMPLETION_TRIGGER=''
-export FZF_DEFAULT_OPTS="--height 40% --reverse --border --prompt '>>>' \
-    --bind 'alt-j:preview-down,alt-k:preview-up,alt-v:execute(vi {})+abort,ctrl-y:execute-silent(cat {} | pbcopy)+abort,?:toggle-preview' \
-    --header 'A-j/k: preview down/up, A-v: open in vim, C-y: copy, ?: toggle preview' \
-    --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null'"
-export FZF_CTRL_T_OPTS=$FZF_DEFAULT_OPTS
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window hidden:wrap --bind '?:toggle-preview'"
-export FZF_ALT_C_OPTS="--height 40% --reverse --border --prompt '>>>' \
-    --bind 'alt-j:preview-down,alt-k:preview-up,?:toggle-preview' \
-    --header 'A-j/k: preview down/up, A-v: open in vim, C-y: copy, ?: toggle preview' \
-    --preview 'tree -C {}'"
-bindkey '^Y' fzf-completion
-bindkey '^I' $fzf_default_completion
-[ -f ~/.dotfiles/lib/fzf-extras.sh ] && source ~/.dotfiles/lib/fzf-extras.sh
 
 DEFAULT_VENV_NAME=".venv"
 alias create-venv2="virtualenv $DEFAULT_VENV_NAME"
 alias create-venv="python3 -m venv $DEFAULT_VENV_NAME"
 alias activate="source $DEFAULT_VENV_NAME/bin/activate"
-
 export THE_PS1=$PS1
 _virtualenv_auto_activate() {
     if [ -e ".venv" ]; then
@@ -215,12 +198,13 @@ precmd_functions=(_virtualenv_auto_activate)
 export EDITOR='vim'
 [ -z "$TMUX" ] && export TERM='xterm-256color'
 if type nvim &> /dev/null; then
-    alias vi=nvim
     alias v=nvim
+    alias vi=nvim
     alias vim=nvim
+    alias nv=nvim
 else
-    alias vi=vim
     alias v=vim
+    alias vi=vim
 fi
 alias tmux='tmux -2'
 alias t='tmux -2'
@@ -233,18 +217,15 @@ alias ll='ls -alh'
 alias :q='exit'
 alias :wq='exit'
 alias mkdirp='mkdir -p'
-alias hgrep='history | grep'
 alias shn='sudo shutdown -h now'
 alias mirror='wget -E -H -k -K -p'
-alias prettyjson='python -m json.tool'
-alias reload='source ~/.bashrc && echo ".bashrc reloaded"'
+alias reload='source ~/.zshrc && echo ".zshrc reloaded"'
 alias dc='docker-compose'
 alias spaces='du -sh $(ls)'
 alias sudo='sudo ' # magic trick to bring aliases to sudo
 alias px="proxychains4"
 alias lcurl='curl --noproxy localhost'
 alias save-last-command='history | tail -n 2 | head -n 1 >> ~/.dotfiles/useful_commands'
-alias nv='nvim'
 
 function proxy {
     if [[ $1 = "on" ]]; then

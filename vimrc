@@ -117,6 +117,7 @@ let g:ctrlp_match_window='min:4,max:10,results:100'
 
 let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o$', '\.la$', '^tags$']
 let g:nerdtree_tabs_open_on_console_startup=0
+let g:nerdtree_tabs_open_on_gui_startup=0
 let g:startify_disable_at_vimenter=1
 
 set statusline+=%#warningmsg#
@@ -144,6 +145,8 @@ let g:vim_json_syntax_conceal=0  " stupid indentline setting json conceals
 
 let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
+
+let g:go_fmt_fail_silently = 1
 
 " close nerdtree on open file
 let NERDTreeQuitOnOpen=1
@@ -220,6 +223,7 @@ Plug 'vim-scripts/vimim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
 Plug 'godlygeek/tabular'
+Plug 'jiangmiao/auto-pairs'
 au FileType python Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/vim-hackernews'
 if has('python')
