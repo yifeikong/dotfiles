@@ -48,7 +48,7 @@ set undofile                  " infinite undo
 " color and outfit
 set number                    " show line number
 "set rnu                       " relative number
-set nowrap                      " auto reline
+set wrap                      " auto reline
 set formatoptions+=m " 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=B " 合并两行中文时，不在中间加空格
 set foldmethod=indent
@@ -107,6 +107,8 @@ let g:airline_theme='powerlineish'
 let g:airline#extensions#ale#enabled=1
 set noshowmode
 set laststatus=2
+set statusline+=%#warningmsg#
+set statusline+=%*
 
 let g:ctrlp_extensions=['tag']
 let g:ctrlp_max_files=0 " by default, ctrlp only caches 60,000 files
@@ -118,10 +120,13 @@ let g:ctrlp_match_window='min:4,max:10,results:100'
 let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o$', '\.la$', '^tags$']
 let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_open_on_gui_startup=0
-let g:startify_disable_at_vimenter=1
+" close nerdtree on open file
+let NERDTreeQuitOnOpen=1
+" close nerdtree on quit vim
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-set statusline+=%#warningmsg#
-set statusline+=%*
+let g:startify_disable_at_vimenter=1
+let vim_markdown_preview_github=1
 
 let g:ag_lhandler="botleft lopen"
 
@@ -147,11 +152,6 @@ let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
 
 let g:go_fmt_fail_silently = 1
-
-" close nerdtree on open file
-let NERDTreeQuitOnOpen=1
-" close nerdtree on quit vim
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " automatically align `|` seperated tables
 " ref: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
@@ -188,6 +188,7 @@ Plug 'alvan/vim-php-manual'
 Plug 'rust-lang/rust.vim'
 Plug 'tmhedberg/SimpylFold'  " pythonic fold
 Plug 'sheerun/vim-polyglot'
+au FileType markdown Plug 'JamshedVesuna/vim-markdown-preview'
 
 " enhancements
 Plug 'mhinz/vim-startify'
@@ -292,8 +293,8 @@ nnoremap <leader>s :set paste!<CR>
 nnoremap <leader>S :set spell!<CR>
 nnoremap <leader>u :UltiSnipsEdit<CR>
 nnoremap <leader>t :Tagbar<CR>
-nnoremap <leader>T :Tabularize
-vnoremap <leader>T :Tabularize
+nnoremap <leader>T :Tabularize /
+vnoremap <leader>T :Tabularize /
 nnoremap <leader><space> :noh<CR>
 
 " fzf related
