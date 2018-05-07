@@ -33,9 +33,9 @@ install_zsh() {
 }
 
 install_vim() {
-    apt-get install exuberant-ctags
-    # Vim, vimrc is inside dotfiles, but .vim files are outside
     sudo apt-get install exuberant-ctags -y
+    pip3 install neovim
+    # vimrc is inside dotfiles, but .vim files are outside
     ln -sfv $DOTFILES_DIR/vimrc $HOME/.vimrc # vimrc
     mkdir -p $HOME/.vim/autoload
     mkdir -p $HOME/.vim/undodir

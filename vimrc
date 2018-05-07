@@ -130,7 +130,9 @@ let vim_markdown_preview_github=1
 
 let g:ag_lhandler="botleft lopen"
 
-let g:ale_python_pylint_options='--rcfile=~/.pylintrc'
+let g:ale_linters = {
+  \ 'python': ['pycodestyle'] ,
+  \ }
 
 let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips', 'UltiSnips']
 let g:UltiSnipsEditSplit="vertical"
@@ -205,6 +207,7 @@ Plug 'majutsushi/tagbar'  " <leader>t
 Plug 'junegunn/fzf', { 'dir': '~/.fzf'}  " install in ~/.fzf and only for vim
 Plug 'junegunn/fzf.vim'  " full fzf support in vim
 Plug 'w0rp/ale'
+Plug 'skywind3000/asyncrun.vim'
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
@@ -354,15 +357,33 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 "*******************************************************************************
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
-    tnoremap <A-h> <C-\><C-n><C-w>h
-    tnoremap <A-j> <C-\><C-n><C-w>j
-    tnoremap <A-k> <C-\><C-n><C-w>k
-    tnoremap <A-l> <C-\><C-n><C-w>l
+    tnoremap <M-[> <Esc>
+    " Terminal mode:
+    tnoremap <M-h> <c-\><c-n><c-w>h
+    tnoremap <M-j> <c-\><c-n><c-w>j
+    tnoremap <M-k> <c-\><c-n><c-w>k
+    tnoremap <M-l> <c-\><c-n><c-w>l
+    " Insert mode:
+    inoremap <M-h> <Esc><c-w>h
+    inoremap <M-j> <Esc><c-w>j
+    inoremap <M-k> <Esc><c-w>k
+    inoremap <M-l> <Esc><c-w>l
+    " Visual mode:
+    vnoremap <M-h> <Esc><c-w>h
+    vnoremap <M-j> <Esc><c-w>j
+    vnoremap <M-k> <Esc><c-w>k
+    vnoremap <M-l> <Esc><c-w>l
+    " Normal mode:
+    nnoremap <M-h> <c-w>h
+    nnoremap <M-j> <c-w>j
+    nnoremap <M-k> <c-w>k
+    nnoremap <M-l> <c-w>l
     function! Python_run()
         execute('split')
         execute('term python3 -i '.expand('%'))
     endfunction
     nnoremap <F6> :call Python_run()<CR>
+    nnoremap <F10> :split<CR>:te<CR>
 endif
 
 set guifont=Monaco\ for\ Powerline:h12
