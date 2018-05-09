@@ -54,7 +54,7 @@ set formatoptions+=B " 合并两行中文时，不在中间加空格
 set foldmethod=indent
 set foldnestmax=99
 set textwidth=80
-set formatoptions=qrn1
+"set formatoptions=qrn1
 set colorcolumn=81         " 81th column colored
 set list
 set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
@@ -278,7 +278,7 @@ function! TrimWhiteSpace()
     ''
 endfunction
 
-noremap <leader>a :Ag<Space>
+noremap <leader>a :Ag<CR>
 noremap <leader>A :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
 au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
@@ -301,6 +301,7 @@ vnoremap <leader>T :Tabularize /
 nnoremap <leader><space> :noh<CR>
 
 " fzf related
+nnoremap <C-p> :Files<CR>
 nnoremap gff :Files<CR>
 nnoremap gfc :Commits<CR>
 nnoremap gfa :Ag<CR>
@@ -323,6 +324,8 @@ noremap <C-w>M <C-w>_
 
 " enhancements
 inoremap jk <Esc>  " very handy
+noremap <M-q> :wqa<CR>
+noremap <M-c> <ESC>
 inoremap <C-u> <esc>viwUi  " turn into uppercase
 nnoremap <C-]> g<C-]>
 noremap <F3> :%s/
@@ -342,6 +345,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 vnoremap < <gv
 vnoremap > >gv
+nnoremap q: :q
 
 " close quick fix if it's last window
 aug QFClose
