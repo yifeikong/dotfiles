@@ -323,8 +323,8 @@ noremap <C-w>m <C-w>\|
 noremap <C-w>M <C-w>_
 
 " enhancements
-inoremap jk <Esc>  " very handy
 noremap <M-q> :wqa<CR>
+inoremap <M-c> <ESC>
 noremap <M-c> <ESC>
 inoremap <C-u> <esc>viwUi  " turn into uppercase
 nnoremap <C-]> g<C-]>
@@ -332,6 +332,7 @@ noremap <F3> :%s/
 noremap g<F3> :s/
 nnoremap / /\v
 vnoremap / /\v
+inoremap <F1> <esc>
 noremap <F1> <esc>
 noremap <C-j> 5j
 noremap <C-k> 5k
