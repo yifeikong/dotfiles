@@ -233,6 +233,7 @@ Plug 'vim-scripts/vim-hackernews'
 if has('python')
     Plug 'ashisha/image.vim'
 endif
+Plug '~/repos/vim-sync'
 call plug#end()
 
 "set background=dark
@@ -258,6 +259,16 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<CR>
+noremap <M-1> 1gt
+noremap <M-2> 2gt
+noremap <M-3> 3gt
+noremap <M-4> 4gt
+noremap <M-5> 5gt
+noremap <M-6> 6gt
+noremap <M-7> 7gt
+noremap <M-8> 8gt
+noremap <M-9> 9gt
+noremap <M-0> :tablast<CR>
 let g:last_active_tab = 1
 nnoremap <silent> <leader>p :execute 'tabnext ' . g:last_active_tab<cr>
 autocmd TabLeave * let g:last_active_tab = tabpagenr()
@@ -327,6 +338,10 @@ noremap <M-q> :wqa<CR>
 inoremap <M-c> <ESC>
 noremap <M-c> <ESC>
 inoremap <C-u> <esc>viwUi  " turn into uppercase
+noremap <M-u> :VSUpload<CR>
+noremap <M-d> :VSDownload<CR>
+noremap <S-M-u> :VSUploadFile<CR>
+noremap <S-M-d> :VSDownloadFile<CR>
 nnoremap <C-]> g<C-]>
 noremap <F3> :%s/
 noremap g<F3> :s/
@@ -347,6 +362,7 @@ cnoremap <C-e> <End>
 vnoremap < <gv
 vnoremap > >gv
 nnoremap q: :q
+nnoremap <F12> :e ++enc=utf-8<CR>
 
 " close quick fix if it's last window
 aug QFClose
