@@ -259,5 +259,6 @@ fi
 export PYTHONPATH=$HOME/repos/futile:$HOME/repos:$PTYHONPATH
 export GOPATH=$HOME/.go  # with vgo, we don't have to put files in GOPATH
 path+=($GOPATH/bin)
+export PIPENV_VENV_IN_PROJECT=1
 
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc
