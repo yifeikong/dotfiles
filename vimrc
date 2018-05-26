@@ -131,8 +131,11 @@ let vim_markdown_preview_github=1
 let g:ag_lhandler="botleft lopen"
 
 let g:ale_linters = {
-  \ 'python': ['pycodestyle'] ,
+  \ 'python': ['pycodestyle', 'flake8'] ,
   \ }
+" install
+" pip install pycodestyle
+" sudo gem install sqlint, however sqlint only supports postgres, not mysql
 
 let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips', 'UltiSnips']
 let g:UltiSnipsEditSplit="vertical"
@@ -338,10 +341,10 @@ noremap <M-q> :wqa<CR>
 inoremap <M-c> <ESC>
 noremap <M-c> <ESC>
 inoremap <C-u> <esc>viwUi  " turn into uppercase
-noremap <M-u> :VSUpload<CR>
-noremap <M-d> :VSDownload<CR>
-noremap <S-M-u> :VSUploadFile<CR>
-noremap <S-M-d> :VSDownloadFile<CR>
+noremap <S-M-u> :VSUpload<CR>
+noremap <S-M-d> :VSDownload<CR>  "download is too dangerous, requires more keystroke
+noremap <M-u> :VSUploadFile<CR>
+noremap <M-d> :VSDownloadFile<CR>
 nnoremap <C-]> g<C-]>
 noremap <F3> :%s/
 noremap g<F3> :s/
