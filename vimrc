@@ -193,6 +193,7 @@ Plug 'alvan/vim-php-manual'
 Plug 'rust-lang/rust.vim'
 Plug 'tmhedberg/SimpylFold'  " pythonic fold
 Plug 'sheerun/vim-polyglot'
+Plug 'uarun/vim-protobuf'
 au FileType markdown Plug 'JamshedVesuna/vim-markdown-preview'
 
 " enhancements

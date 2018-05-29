@@ -256,7 +256,7 @@ if uname | grep -q Darwin; then
     proxy on
 fi
 
-export PYTHONPATH=$HOME/repos/futile:$HOME/repos:$PTYHONPATH
+export PYTHONPATH=$HOME/repos/futile:$HOME/repos:/var/compiled:$PTYHONPATH
 export GOPATH=$HOME/.go  # with vgo, we don't have to put files in GOPATH
 path+=($GOPATH/bin)
 export PIPENV_VENV_IN_PROJECT=1
