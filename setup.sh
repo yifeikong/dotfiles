@@ -28,6 +28,10 @@ install_flake8() {
     ln -sfv $DOTFILES_DIR/flake8 ~/.config/flake8
 }
 
+install_pycodestyle() {
+    ln -sfv $DOTFILES_DIR/pycodestyle ~/.config/pycodestyle
+}
+
 install_zsh() {
     ln -sfv $DOTFILES_DIR/zshrc ~/.zshrc
 }

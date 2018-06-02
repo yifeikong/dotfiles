@@ -194,6 +194,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tmhedberg/SimpylFold'  " pythonic fold
 Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
+Plug 'heavenshell/vim-pydocstring'
 au FileType markdown Plug 'JamshedVesuna/vim-markdown-preview'
 
 " enhancements

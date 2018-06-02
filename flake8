@@ -1,5 +1,5 @@
 [flake8]
-max-line-length = 120
+max-line-length = 100
 
 # E3 blank line related errors, often found on toutiao code
 # E5 line length, too many
