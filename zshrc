@@ -253,7 +253,7 @@ if uname | grep -q Darwin; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
     path+=($ANDROID_HOME/tools)
     path+=($ANDROID_HOME/platform-tools)
-    proxy on
+    # proxy on
 fi
 
 export PYTHONPATH=$HOME/repos/futile:$HOME/repos:/var/compiled:$PTYHONPATH

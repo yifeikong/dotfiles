@@ -131,7 +131,7 @@ let vim_markdown_preview_github=1
 let g:ag_lhandler="botleft lopen"
 
 let g:ale_linters = {
-  \ 'python': ['pycodestyle', 'flake8'] ,
+  \ 'python': ['pycodestyle', 'flake8', 'mypy'] ,
   \ }
 " install
 " pip install pycodestyle
