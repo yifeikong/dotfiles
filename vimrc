@@ -306,7 +306,7 @@ nnoremap <leader>i :IndentLinesToggle<CR>
 nnoremap <leader>I :GoImports<CR>
 nnoremap <leader>j :%!json_format<CR>  " rely on ~/.dotfiles/bin/json_format
 nnoremap <leader>m :call TrimWhiteSpace()<CR>
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <leader>q :wq<CR>
 nnoremap <leader>s :set paste!<CR>
 nnoremap <leader>S :set spell!<CR>
@@ -331,7 +331,7 @@ vmap <leader>y :w! /tmp/vim_clipboard<CR>
 nmap <leader>p :r! cat /tmp/vim_clipboard<CR>
 
 " panel related
-noremap <F2> :NERDTreeToggle<CR>
+noremap <F2> :NERDTreeTabsToggle<CR>
 noremap <F4> :Tagbar<CR>
 
 " window related like tmux
