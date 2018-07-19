@@ -206,6 +206,7 @@ else
     alias v=vim
     alias vi=vim
 fi
+alias fig=docker-compose
 alias tmux='tmux -2'
 alias t='tmux -2'
 alias ta='tmux -2 a'
