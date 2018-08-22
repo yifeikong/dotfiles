@@ -60,7 +60,7 @@ set list
 set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
 au FileType go set listchars=tab:\ \ ,trail:·,extends:>,precedes:<
 
-set mouse=a
+set mouse=
 
 set magic
 
@@ -182,30 +182,30 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " language related
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'posva/vim-vue'
-Plug 'solarnz/thrift.vim'
-Plug 'pangloss/vim-javascript'
+au FileType go Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+au FileType vue Plug 'posva/vim-vue'
+au FileType thrift Plug 'solarnz/thrift.vim'
+au FileType javascript Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'othree/yajs.vim'
+au FileType javascript Plug 'othree/yajs.vim'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'alvan/vim-php-manual'
-Plug 'rust-lang/rust.vim'
+au FileType php Plug 'alvan/vim-php-manual'
+au FileType rust Plug 'rust-lang/rust.vim'
 Plug 'tmhedberg/SimpylFold'  " pythonic fold
 Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
-Plug 'heavenshell/vim-pydocstring'
+au FileType python Plug 'heavenshell/vim-pydocstring'
 au FileType markdown Plug 'JamshedVesuna/vim-markdown-preview'
 
 " enhancements
-Plug 'mhinz/vim-startify'
+"Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+"Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'  " <leader>t
 
 " prompt
@@ -216,25 +216,25 @@ Plug 'skywind3000/asyncrun.vim'
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'Valloric/YouCompleteMe'
+    "Plug 'Valloric/YouCompleteMe'
     " need to call ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --go-completer --js-completer
 endif
 
 " colors
-Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
+"Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
 Plug 'altercation/vim-colors-solarized'  " current colorscheme
-Plug 'tomasr/molokai'
+"Plug 'tomasr/molokai'
 
 " misc
 Plug 'tpope/vim-commentary'  " gc<motion> to comment
 Plug 'kshenoy/vim-signature'
-Plug 'vim-scripts/vimim'
+"Plug 'vim-scripts/vimim'
 Plug 'guns/xterm-color-table.vim'
-Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
+"Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
 Plug 'godlygeek/tabular'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 au FileType python Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-scripts/vim-hackernews'
+"Plug 'vim-scripts/vim-hackernews'
 if has('python')
     Plug 'ashisha/image.vim'
 endif
