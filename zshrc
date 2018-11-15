@@ -260,6 +260,8 @@ fi
 export PYTHONPATH=$HOME/repos/futile:$HOME/repos:/var/compiled:$PTYHONPATH
 export GOPATH=$HOME/.go  # with vgo, we don't have to put files in GOPATH
 path+=($GOPATH/bin)
+path+=(/home/linuxbrew/.linuxbrew/bin)
 export PIPENV_VENV_IN_PROJECT=1
+unalias grv
 
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc

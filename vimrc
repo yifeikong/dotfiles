@@ -53,14 +53,14 @@ set formatoptions+=m " 如遇Unicode值大于255的文本，不必等到空格�
 set formatoptions+=B " 合并两行中文时，不在中间加空格
 set foldmethod=indent
 set foldnestmax=99
-set textwidth=80
+set textwidth=88
 "set formatoptions=qrn1
 set colorcolumn=81         " 81th column colored
 set list
 set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
 au FileType go set listchars=tab:\ \ ,trail:·,extends:>,precedes:<
 
-set mouse=
+set mouse=a
 
 set magic
 
@@ -118,12 +118,16 @@ let g:ctrlp_follow_symlinks=1
 let g:ctrlp_match_window='min:4,max:10,results:100'
 
 let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o$', '\.la$', '^tags$']
-let g:nerdtree_tabs_open_on_console_startup=0
-let g:nerdtree_tabs_open_on_gui_startup=0
+" let g:nerdtree_tabs_open_on_console_startup=0
+" let g:nerdtree_tabs_open_on_gui_startup=0
 " close nerdtree on open file
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
+" autocmd VimEnter * NERDTree
 " close nerdtree on quit vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeMapOpenInTab='<C-t>'
+let g:NERDTreeMapOpenSplit='<C-x>'
+let g:NERDTreeMapOpenVSplit='<C-v>'
 
 let g:startify_disable_at_vimenter=1
 let vim_markdown_preview_github=1
@@ -155,6 +159,9 @@ let g:vim_json_syntax_conceal=0  " stupid indentline setting json conceals
 
 let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * : hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * : hi IndentGuidesEven ctermbg=black
 
 let g:go_fmt_fail_silently = 1
 
@@ -182,31 +189,33 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " language related
-au FileType go Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-au FileType vue Plug 'posva/vim-vue'
-au FileType thrift Plug 'solarnz/thrift.vim'
-au FileType javascript Plug 'pangloss/vim-javascript'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'posva/vim-vue'
+Plug 'solarnz/thrift.vim'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 au FileType javascript Plug 'othree/yajs.vim'
 Plug 'cakebaker/scss-syntax.vim'
 au FileType php Plug 'alvan/vim-php-manual'
-au FileType rust Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'tmhedberg/SimpylFold'  " pythonic fold
 Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
-au FileType python Plug 'heavenshell/vim-pydocstring'
-au FileType markdown Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'heavenshell/vim-pydocstring'
+" Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'ambv/black'
 
 " enhancements
 "Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdtree'
 "Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'  " <leader>t
+Plug 'wesQ3/vim-windowswap'
 
 " prompt
 Plug 'junegunn/fzf', { 'dir': '~/.fzf'}  " install in ~/.fzf and only for vim
@@ -216,7 +225,8 @@ Plug 'skywind3000/asyncrun.vim'
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    "Plug 'Valloric/YouCompleteMe'
+    Plug 'zxqfl/tabnine-vim'
+    " Plug 'Valloric/YouCompleteMe'
     " need to call ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --go-completer --js-completer
 endif
 
@@ -233,7 +243,7 @@ Plug 'guns/xterm-color-table.vim'
 "Plug 'ludovicchabant/vim-gutentags' " need to install exburtan-tags
 Plug 'godlygeek/tabular'
 "Plug 'jiangmiao/auto-pairs'
-au FileType python Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'vim-scripts/vim-hackernews'
 if has('python')
     Plug 'ashisha/image.vim'
@@ -297,8 +307,8 @@ endfunction
 noremap <leader>a :Ag<CR>
 noremap <leader>A :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
-au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
-noremap <leader>c :cclose<CR>
+nnoremap <leader>B :Black<CR>
+noremap <leader>c :Commands<CR>
 nnoremap <leader>g :ALEGoToDefinition<CR>
 nnoremap <leader>G :ALEGoToDefinitionInTab<CR>
 nnoremap <leader>H :tabe<CR>:HackerNews<CR>
@@ -318,6 +328,7 @@ nnoremap <leader><space> :noh<CR>
 
 " fzf related
 nnoremap <C-p> :Files<CR>
+nnoremap <C-l> :Commands<CR>
 nnoremap gff :Files<CR>
 nnoremap gfc :Commits<CR>
 nnoremap gfa :Ag<CR>
@@ -341,8 +352,6 @@ noremap <C-w>M <C-w>_
 
 " enhancements
 noremap <M-q> :wqa<CR>
-inoremap <M-c> <ESC>
-noremap <M-c> <ESC>
 inoremap <C-u> <esc>viwUi  " turn into uppercase
 noremap <S-M-u> :VSUpload<CR>
 noremap <S-M-d> :VSDownload<CR>  "download is too dangerous, requires more keystroke
