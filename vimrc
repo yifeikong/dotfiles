@@ -66,6 +66,7 @@ set magic
 
 set splitright
 set splitbelow
+" set cursorcolumn
 
 
 " for molokai, no need for that!
@@ -232,8 +233,9 @@ endif
 
 " colors
 "Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
-Plug 'altercation/vim-colors-solarized'  " current colorscheme
-"Plug 'tomasr/molokai'
+"Plug 'altercation/vim-colors-solarized'  " current colorscheme
+Plug 'tomasr/molokai'
+Plug 'ErichDonGubler/vim-sublime-monokai'
 
 " misc
 Plug 'tpope/vim-commentary'  " gc<motion> to comment
@@ -252,7 +254,7 @@ Plug '~/repos/vim-sync'
 call plug#end()
 
 "set background=dark
-colo solarized  " colorscheme depends on plugins
+colo molokai  " colorscheme depends on plugins
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 
 "*******************************************************************************
