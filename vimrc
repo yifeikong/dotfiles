@@ -35,7 +35,7 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,latin1
 set scrolloff=3
 set fenc=utf-8
 set hidden
-set background=dark
+set background=light
 syntax on
 scriptencoding utf-8
 set encoding=utf-8
@@ -207,6 +207,9 @@ Plug 'heavenshell/vim-pydocstring'
 Plug 'ambv/black'
 
 " enhancements
+Plug 'mkitt/tabline.vim'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
 "Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -236,6 +239,7 @@ endif
 "Plug 'altercation/vim-colors-solarized'  " current colorscheme
 Plug 'tomasr/molokai'
 Plug 'ErichDonGubler/vim-sublime-monokai'
+Plug 'NLKNguyen/papercolor-theme'
 
 " misc
 Plug 'tpope/vim-commentary'  " gc<motion> to comment
@@ -256,14 +260,19 @@ call plug#end()
 "set background=dark
 colo molokai  " colorscheme depends on plugins
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
+hi Visual cterm=bold ctermbg=Blue ctermfg=NONE
 
 "*******************************************************************************
 "*                                   mappings                                  *
 "*******************************************************************************
 
+let mapleader = " "
+
 " sudo related
 cmap w!! w !sudo tee %
 cmap x!! w !sudo tee %<CR><CR>:q!<CR>
+
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
 " tab related
 noremap <leader>1 1gt
@@ -297,8 +306,7 @@ noremap <leader>+ :tabedit<CR>:Startify<CR>
 noremap <leader>h :Startify<CR>  " h for home
 
 " vimrc related
-noremap <leader>r :source ~/.vimrc<CR>  " r for reload
-noremap <leader>R :w<CR>:source ~/.vimrc<CR>:PlugInstall<CR>
+noremap <leader>R :source ~/.vimrc<CR>  " r for reload
 noremap <leader>v :vsplit ~/.vimrc<CR>  " v for vimrc
 
 function! TrimWhiteSpace()
@@ -327,6 +335,7 @@ nnoremap <leader>t :Tagbar<CR>
 nnoremap <leader>T :Tabularize /
 vnoremap <leader>T :Tabularize /
 nnoremap <leader><space> :noh<CR>
+nnoremap <leader>w :wa<CR>
 
 " fzf related
 nnoremap <C-p> :Files<CR>
