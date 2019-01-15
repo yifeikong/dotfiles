@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then
     exit
 fi
 
-TMUX_VER=2.2
+TMUX_VER=2.8
 apt-get install -y gcc make libncurses5-dev libevent-dev wget
 wget https://github.com/tmux/tmux/releases/download/${TMUX_VER}/tmux-${TMUX_VER}.tar.gz
 tar xzf tmux-${TMUX_VER}.tar.gz

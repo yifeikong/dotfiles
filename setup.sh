@@ -3,6 +3,7 @@
 DOTFILES_DIR=$HOME/.dotfiles
 
 install_tmux() {
+    sudo apt install -y cmatrix
     ln -sfv $DOTFILES_DIR/tmux.conf ~/.tmux.conf
     git clone https://github.com/tmux-plugins/tmux-resurrect tmux-resurrect
 }
@@ -12,6 +13,8 @@ install_ag() {
 }
 
 install_git() {
+    sudo curl https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -o /usr/local/bin/diff-so-fancy
+    sudo chmod +x /usr/local/bin/diff-so-fancy
     ln -sfv $DOTFILES_DIR/gitconfig ~/.gitconfig
 }
 
@@ -33,12 +36,15 @@ install_pycodestyle() {
 }
 
 install_zsh() {
+    apt install -y zsh
+    sudo sed s/required/sufficient/g -i /etc/pam.d/chsh
+    chsh -s /bin/zsh
     ln -sfv $DOTFILES_DIR/zshrc ~/.zshrc
 }
 
 install_vim() {
-    sudo apt-get install exuberant-ctags -y
-    pip3 install neovim
+    sudo apt-get install exuberant-ctags python3-pip -y
+    pip3 install neovim black
     # vimrc is inside dotfiles, but .vim files are outside
     ln -sfv $DOTFILES_DIR/vimrc $HOME/.vimrc # vimrc
     mkdir -p $HOME/.vim/autoload
