@@ -265,3 +265,5 @@ export PIPENV_VENV_IN_PROJECT=1
 unalias grv
 
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc
+
+autoload -U +X bashcompinit && bashcompinit
