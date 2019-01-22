@@ -49,15 +49,25 @@ antigen use oh-my-zsh
 
 # default bundles
 # visit https://github.com/unixorn/awesome-zsh-plugins
+# antigen bundle sudo
+antigen bundle thefuck
+antigen bundle vi-mode
+antigen bundle tmux
+antigen bundle ansible
 antigen bundle git
+antigen bundle celery
 antigen bundle pip
 antigen bundle command-not-find
-
+antigen bundle colored-man-pages
+antigen bundle django
+antigen bundle docker
+antigen bundle fzf
+antigen bundle history
+antigen bundle kubectl
 antigen bundle colorize
 antigen bundle github
 antigen bundle python
 antigen bundle rupa/z z.sh
-# antigen bundle z
 
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
@@ -209,7 +219,6 @@ fi
 alias fig=docker-compose
 alias tmux='tmux -2'
 alias t='tmux -2'
-alias ta='tmux -2 a'
 alias cd..='cd ..'
 alias ipy=ipython
 alias py=python
@@ -261,7 +270,6 @@ export PYTHONPATH=$HOME/repos/futile:$HOME/repos:/var/compiled:$PTYHONPATH
 export GOPATH=$HOME/.go  # with vgo, we don't have to put files in GOPATH
 path+=($GOPATH/bin)
 path+=(/home/linuxbrew/.linuxbrew/bin)
-export PIPENV_VENV_IN_PROJECT=1
 unalias grv
 
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc
