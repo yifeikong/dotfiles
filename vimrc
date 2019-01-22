@@ -98,6 +98,7 @@ set hlsearch
 "*                                   plugin                                    *
 "*******************************************************************************
 
+let g:black_virtualenv='~/.vim/.black'
 let &t_SI="\e[6 q"
 let &t_EI="\e[2 q"
 let g:vimim_cloud=-1
@@ -195,9 +196,9 @@ Plug 'posva/vim-vue'
 Plug 'solarnz/thrift.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-au FileType javascript Plug 'othree/yajs.vim'
+Plug 'othree/yajs.vim'
 Plug 'cakebaker/scss-syntax.vim'
-au FileType php Plug 'alvan/vim-php-manual'
+Plug 'alvan/vim-php-manual'
 Plug 'rust-lang/rust.vim'
 Plug 'tmhedberg/SimpylFold'  " pythonic fold
 Plug 'sheerun/vim-polyglot'
@@ -222,6 +223,8 @@ Plug 'majutsushi/tagbar'  " <leader>t
 Plug 'wesQ3/vim-windowswap'
 
 " prompt
+Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf'}  " install in ~/.fzf and only for vim
 Plug 'junegunn/fzf.vim'  " full fzf support in vim
 Plug 'w0rp/ale'
@@ -234,12 +237,24 @@ if has('python') || has('python3')
     " need to call ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --go-completer --js-completer
 endif
 
+" if executable('pyls')
+"     " pip install python-language-server
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'pyls',
+"         \ 'cmd': {server_info->['pyls']},
+"         \ 'whitelist': ['python'],
+"         \ })
+" endif
+
+let g:lsp_signs_enabled = 1         " enable signs
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+
 " colors
 "Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
 "Plug 'altercation/vim-colors-solarized'  " current colorscheme
 Plug 'tomasr/molokai'
-Plug 'ErichDonGubler/vim-sublime-monokai'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'ErichDonGubler/vim-sublime-monokai'
+" Plug 'NLKNguyen/papercolor-theme'
 
 " misc
 Plug 'tpope/vim-commentary'  " gc<motion> to comment
