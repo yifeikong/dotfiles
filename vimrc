@@ -66,7 +66,7 @@ set magic
 
 set splitright
 set splitbelow
-" set cursorcolumn
+set cursorcolumn
 
 
 " for molokai, no need for that!
@@ -167,6 +167,11 @@ autocmd VimEnter,Colorscheme * : hi IndentGuidesEven ctermbg=black
 
 let g:go_fmt_fail_silently = 1
 
+" let g:vimade = {}
+" let g:vimade.basefg = [208, 208, 208]
+" let g:vimade.basebg = [18, 18, 18]
+" let g:vimade_usecursorhold=1
+
 " automatically align `|` seperated tables
 " ref: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -221,6 +226,7 @@ Plug 'scrooloose/nerdtree'
 "Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'  " <leader>t
 Plug 'wesQ3/vim-windowswap'
+Plug 'TaDaa/vimade'
 
 " prompt
 Plug 'prabirshrestha/async.vim'
@@ -272,7 +278,7 @@ endif
 Plug '~/repos/vim-sync'
 call plug#end()
 
-"set background=dark
+set background=dark
 colo molokai  " colorscheme depends on plugins
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 hi Visual cterm=bold ctermbg=Blue ctermfg=NONE

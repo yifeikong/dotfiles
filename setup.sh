@@ -5,7 +5,7 @@ DOTFILES_DIR=$HOME/.dotfiles
 install_tmux() {
     sudo apt install -y cmatrix
     ln -sfv $DOTFILES_DIR/tmux.conf ~/.tmux.conf
-    git clone https://github.com/tmux-plugins/tmux-resurrect tmux-resurrect
+    # git clone https://github.com/tmux-plugins/tmux-resurrect tmux-resurrect
 }
 
 install_git() {
@@ -68,9 +68,11 @@ install_completions() {
 install_python() {
     ln -sfv $DOTFILES_DIR/pycodestyle ~/.config/pycodestyle
     ln -sfv $DOTFILES_DIR/flake8 ~/.config/flake8
-    ln -s $HOME/.dotfiles/pdbrc $HOME/.pdbrc
-    ln -s $HOME/.dotfiles/pylintrc $HOME/.pylintrc
-    pip3 insatll black jinja2 pyyaml mycli python-language-server rope pycodestyle pydocstyle mccabe pyls-isort pyls-black pyls-mypy thefuck
+    ln -sfv $DOTFILES_DIR/pdbrc $HOME/.pdbrc
+    ln -sfv $DOTFILES_DIR/pylintrc $HOME/.pylintrc
+    pip3 insatll black jinja2 pyyaml mycli python-language-server rope \
+        pycodestyle pydocstyle mccabe pyls-isort pyls-black pyls-mypy thefuck \
+        pylint flake8
 }
 
 
