@@ -3,13 +3,21 @@
 DOTFILES_DIR=$HOME/.dotfiles
 
 install_tmux() {
-    sudo apt install -y cmatrix
+    if [[ `uname -a` == *"Darwin"* ]]; then
+        brew install cmatrix
+    else
+        sudo apt install -y cmatrix
+    fi
     ln -sfv $DOTFILES_DIR/tmux.conf ~/.tmux.conf
     # git clone https://github.com/tmux-plugins/tmux-resurrect tmux-resurrect
 }
 
 install_git() {
-    sudo apt install -y git
+    if [[ `uname -a` == *"Darwin"* ]]; then
+        sudo apt install -y git
+    else
+        brew install git
+    fi
     sudo curl https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -o /usr/local/bin/diff-so-fancy
     sudo chmod +x /usr/local/bin/diff-so-fancy
     ln -sfv $DOTFILES_DIR/gitconfig ~/.gitconfig
@@ -21,29 +29,62 @@ install_bashrc() {
 }
 
 install_fonts() {
-    echo You need to manully install the font
+    if [[ `uname -a` == *"Darwin"* ]]; then
+        brew tap caskroom/fonts
+        brew cask install font-fira-code
+        echo "You need to set up fira code in iterm2"
+    else
+        echo "You need to install the fonts on client, skip"
+    fi
 }
 
 install_zsh() {
-    apt install -y zsh
+    if [[ `uname -a` == *"Darwin"* ]]; then
+        brew install zsh
+    else
+        sudo apt install -y zsh
+    fi
     sudo sed s/required/sufficient/g -i /etc/pam.d/chsh
     chsh -s /bin/zsh
     ln -sfv $DOTFILES_DIR/zshrc ~/.zshrc
 }
 
-install_ag() {
-    sudo apt install -y silversearcher-ag
-    curl -L -O https://github.com/sharkdp/fd/releases/download/v7.2.0/fd-musl_7.2.0_amd64.deb
-    dpkg -i fd-musl_7.2.0_amd64.deb
+install_fuzzy_search() {
+    if [[ `uname -a` == *"Darwin"* ]]; then
+        brew install the_silver_searcher fd
+    else
+        sudo apt install -y silversearcher-ag
+        curl -L -O https://github.com/sharkdp/fd/releases/download/v7.2.0/fd-musl_7.2.0_amd64.deb
+        dpkg -i fd-musl_7.2.0_amd64.deb
+    fi
     ln -sfv $DOTFILES_DIR/agignore ~/.agignore
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 }
 
+install_python() {
+    if [[ `uname -a` == *"Darwin"* ]]; then
+        brew install python
+    else
+        sudo apt install -y python3-pip
+    fi
+    ln -sfv $DOTFILES_DIR/pycodestyle ~/.config/pycodestyle
+    ln -sfv $DOTFILES_DIR/flake8 ~/.config/flake8
+    ln -sfv $DOTFILES_DIR/pdbrc $HOME/.pdbrc
+    ln -sfv $DOTFILES_DIR/pylintrc $HOME/.pylintrc
+    pip3 install black jinja2 pyyaml mycli python-language-server rope \
+        pycodestyle pydocstyle mccabe pyls-isort pyls-black pyls-mypy thefuck \
+        pylint flake8
+}
 
 install_vim() {
-    sudo apt-get install exuberant-ctags python3-pip -y
-    pip3 install neovim black
+    if [[ `uname -a` == *"Darwin"* ]]; then
+        brew install vim ctags
+    else
+        # vim on ubuntu 18.04 is already 8.0
+        sudo apt-get install exuberant-ctags -y
+    fi
+    pip3 install neovim
     # vimrc is inside dotfiles, but .vim files are outside
     ln -sfv $DOTFILES_DIR/vimrc $HOME/.vimrc # vimrc
     mkdir -p $HOME/.vim/autoload
@@ -57,26 +98,16 @@ install_vim() {
 }
 
 install_ssh() {
-    sudo apt -y install mosh
+    if [[ `uname -a` == *"Darwin"* ]]; then
+        brew install mosh
+    else
+        sudo apt -y install mosh
+    fi
     cat $DOTFILES_DIR/ssh_config >> $HOME/.ssh/config
 }
 
-install_completions() {
-    bash $DOTFILES_DIR/install_completions.sh
-}
 
-install_python() {
-    ln -sfv $DOTFILES_DIR/pycodestyle ~/.config/pycodestyle
-    ln -sfv $DOTFILES_DIR/flake8 ~/.config/flake8
-    ln -sfv $DOTFILES_DIR/pdbrc $HOME/.pdbrc
-    ln -sfv $DOTFILES_DIR/pylintrc $HOME/.pylintrc
-    pip3 insatll black jinja2 pyyaml mycli python-language-server rope \
-        pycodestyle pydocstyle mccabe pyls-isort pyls-black pyls-mypy thefuck \
-        pylint flake8
-}
-
-
-for prog in zsh tmux ag git fonts bashrc vim ssh completions python; do
+for prog in zsh tmux fuzzy_search git fonts bashrc vim ssh python; do
     if [ "$1" != "-y" ]; then
         echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
         read ok
