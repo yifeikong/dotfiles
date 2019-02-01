@@ -107,14 +107,22 @@ install_ssh() {
 }
 
 
-for prog in zsh tmux fuzzy_search git fonts bashrc vim ssh python; do
-    if [ "$1" != "-y" ]; then
-        echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
-        read ok
-        if [ "$ok" == 'n' ]; then
-            continue
-        fi
-    fi
+if [ ! -z $1 ] && [ "$1" != "-y" ]; then
+    prog=$1
+    echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
     echo "  => installing $prog config"
-    install_$prog #call the install method
-done
+    install_$prog  # call the install method
+    exit 0
+else
+    for prog in zsh tmux fuzzy_search git fonts bashrc vim ssh python; do
+        if [ "$1" != "-y" ]; then
+            echo -en "\033[31minstall $prog config?\033[0m [Y/n] "
+            read ok
+            if [ "$ok" == 'n' ]; then
+                continue
+            fi
+        fi
+        echo "  => installing $prog config"
+        install_$prog #call the install method
+    done
+fi

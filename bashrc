@@ -119,6 +119,7 @@ if uname | grep -q Darwin; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
     add_path_if_not_exists $ANDROID_HOME/tools "PATH"
     add_path_if_not_exists $ANDROID_HOME/platform-tools "PATH"
+    add_path_if_not_exists /usr/local/texlive/2017/bin/x86_64-darwin/ "PATH"
 fi
 
 for f in $HOME/.dotfiles/completions/*.sh; do
