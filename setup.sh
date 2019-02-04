@@ -8,6 +8,8 @@ install_tmux() {
     else
         sudo apt install -y cmatrix
     fi
+    mkdir $HOME/.tmux
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     ln -sfv $DOTFILES_DIR/tmux.conf ~/.tmux.conf
     # git clone https://github.com/tmux-plugins/tmux-resurrect tmux-resurrect
 }
