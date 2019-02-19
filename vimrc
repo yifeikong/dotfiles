@@ -111,6 +111,16 @@ set noshowmode
 set laststatus=2
 set statusline+=%#warningmsg#
 set statusline+=%*
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'component_function': {
+      \   'filename': 'LightLineFilename'
+      \ }
+  \}
+
+function! LightLineFilename()
+  return expand('%')
+endfunction
 
 let g:ctrlp_extensions=['tag']
 let g:ctrlp_max_files=0 " by default, ctrlp only caches 60,000 files
@@ -211,14 +221,16 @@ Plug 'uarun/vim-protobuf'
 Plug 'heavenshell/vim-pydocstring'
 " Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'ambv/black'
+Plug 'fisadev/vim-isort'
 
 " enhancements
 Plug 'mkitt/tabline.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
 "Plug 'mhinz/vim-startify'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'bling/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'xuyuanp/nerdtree-git-plugin'
