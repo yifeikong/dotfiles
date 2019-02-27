@@ -205,6 +205,8 @@ _virtualenv_auto_activate() {
 
 precmd_functions=(_virtualenv_auto_activate)
 
+
+
 export EDITOR='vim'
 [ -z "$TMUX" ] && export TERM='xterm-256color'
 if type nvim &> /dev/null; then
@@ -259,6 +261,8 @@ path+=($HOME/.cargo/bin)
 path+=(/usr/local/go/bin)
 path+=($HOME/.dotfiles/bin)
 path+=($HOME/.linuxbrew/bin)
+path+=($HOME/repos/deploy/bin)
+path+=(/snap/bin)
 if uname | grep -q Darwin; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
     path+=($ANDROID_HOME/tools)
@@ -266,7 +270,7 @@ if uname | grep -q Darwin; then
     # proxy on
 fi
 
-export PYTHONPATH=$HOME/repos/futile:$HOME/repos:/var/compiled:$PTYHONPATH
+export PYTHONPATH=$HOME/repos/futile:$HOME/repos/inf:$HOME/repos/app_common:$HOME/repos:/var/compiled
 export GOPATH=$HOME/.go  # with vgo, we don't have to put files in GOPATH
 path+=($GOPATH/bin)
 path+=(/home/linuxbrew/.linuxbrew/bin)
