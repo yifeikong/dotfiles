@@ -76,7 +76,7 @@ install_python() {
     ln -sfv $DOTFILES_DIR/pylintrc $HOME/.pylintrc
     pip3 install black jinja2 pyyaml mycli python-language-server rope \
         pycodestyle pydocstyle mccabe pyls-isort pyls-black pyls-mypy thefuck \
-        pylint flake8
+        pylint flake8 isort
 }
 
 install_vim() {

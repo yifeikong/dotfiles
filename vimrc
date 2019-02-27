@@ -146,8 +146,10 @@ let vim_markdown_preview_github=1
 
 let g:ag_lhandler="botleft lopen"
 
+let g:vim_isort_map = ''
+
 let g:ale_linters = {
-  \ 'python': ['pycodestyle', 'flake8', 'mypy'] ,
+  \ 'python': ['pycodestyle', 'flake8'] ,
   \ }
 " install
 " pip install pycodestyle
@@ -208,7 +210,7 @@ call plug#begin('~/.vim/plugged')
 " language related
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'posva/vim-vue'
-Plug 'solarnz/thrift.vim'
+" Plug 'solarnz/thrift.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'othree/yajs.vim'
@@ -356,7 +358,7 @@ nnoremap <leader>g :ALEGoToDefinition<CR>
 nnoremap <leader>G :ALEGoToDefinitionInTab<CR>
 nnoremap <leader>H :tabe<CR>:HackerNews<CR>
 nnoremap <leader>i :IndentLinesToggle<CR>
-nnoremap <leader>I :GoImports<CR>
+nnoremap <leader>I :Isort<CR>
 nnoremap <leader>j :%!json_format<CR>  " rely on ~/.dotfiles/bin/json_format
 nnoremap <leader>m :call TrimWhiteSpace()<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -368,7 +370,7 @@ nnoremap <leader>t :Tagbar<CR>
 nnoremap <leader>T :Tabularize /
 vnoremap <leader>T :Tabularize /
 nnoremap <leader><space> :noh<CR>
-nnoremap <leader>w :wa<CR>
+nnoremap <leader>w :wa<CR>:echom "All files saved!"<CR>
 
 " fzf related
 nnoremap <C-p> :Files<CR>
