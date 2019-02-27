@@ -17,4 +17,3 @@ cd Python-${VERSION}
     --enable-loadable-sqlite-extensions
 make
 make install
-
