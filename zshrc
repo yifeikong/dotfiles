@@ -279,3 +279,5 @@ unalias grv
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc
 
 autoload -U +X bashcompinit && bashcompinit
+
+eval $(thefuck --alias)
