@@ -51,8 +51,8 @@ set number                    " show line number
 set wrap                      " auto reline
 set formatoptions+=m " 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=B " 合并两行中文时，不在中间加空格
-set foldmethod=indent
-set foldnestmax=99
+" set foldmethod=indent
+" set foldnestmax=99
 set textwidth=88
 "set formatoptions=qrn1
 set colorcolumn=81         " 81th column colored
