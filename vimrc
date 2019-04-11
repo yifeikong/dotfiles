@@ -382,6 +382,7 @@ nnoremap gfl :Lines<CR>
 nnoremap gft :Tags<CR>
 "nnoremap gfs :Snippets<CR>
 imap <c-x><c-l> <plug>(fzf-complete-line)
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " cross vim copy and paste
 vmap <leader>y :w! /tmp/vim_clipboard<CR>

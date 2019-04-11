@@ -206,6 +206,16 @@ _virtualenv_auto_activate() {
 precmd_functions=(_virtualenv_auto_activate)
 
 
+function gtree {
+    git_ignore_files=("$(git config --get core.excludesfile)" .gitignore ~/.gitignore)
+    ignore_pattern="$(grep -hvE '^$|^#' "${git_ignore_files[@]}" 2>/dev/null|sed 's:/$::'|tr '\n' '\|')"
+    if git status &> /dev/null && [[ -n "${ignore_pattern}" ]]; then
+      tree -I "${ignore_pattern}" "${@}"
+    else
+      tree "${@}"
+    fi
+}
+
 
 export EDITOR='vim'
 [ -z "$TMUX" ] && export TERM='xterm-256color'
@@ -271,7 +281,9 @@ if uname | grep -q Darwin; then
 fi
 
 export PYTHONPATH=$HOME/repos/futile:$HOME/repos/inf:$HOME/repos/app_common:$HOME/repos:/var/compiled
-export GOPATH=$HOME/.go  # with vgo, we don't have to put files in GOPATH
+export CONFPATH=$HOME/repos/conf
+export IS_SPIDER=1
+export GOPATH=$HOME/.go
 path+=($GOPATH/bin)
 path+=(/home/linuxbrew/.linuxbrew/bin)
 unalias grv

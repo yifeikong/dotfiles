@@ -2,7 +2,7 @@
     name = Yifei Kong
     email = kongyifei@gmail.com
 [push]
-    default = simple
+	default = current
 [alias]
     co = checkout
     br = branch
