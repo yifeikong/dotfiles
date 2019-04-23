@@ -282,7 +282,6 @@ fi
 
 export PYTHONPATH=$HOME/repos/futile:$HOME/repos/inf:$HOME/repos/app_common:$HOME/repos:/var/compiled
 export CONFPATH=$HOME/repos/conf
-export IS_SPIDER=1
 export GOPATH=$HOME/.go
 path+=($GOPATH/bin)
 path+=(/home/linuxbrew/.linuxbrew/bin)
