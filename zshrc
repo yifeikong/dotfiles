@@ -51,11 +51,10 @@ antigen use oh-my-zsh
 # visit https://github.com/unixorn/awesome-zsh-plugins
 # antigen bundle sudo
 antigen bundle thefuck
-antigen bundle vi-mode
+# antigen bundle vi-mode
 antigen bundle tmux
 antigen bundle ansible
 antigen bundle git
-antigen bundle celery
 antigen bundle pip
 antigen bundle command-not-find
 antigen bundle colored-man-pages
@@ -126,30 +125,30 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 # setup for deer
-autoload -U deer
-zle -N deer
+# autoload -U deer
+# zle -N deer
 
 # default keymap
-bindkey -s '\ee' 'vim\n'
-bindkey '\eh' backward-char
-bindkey '\el' forward-char
-bindkey '\ej' down-line-or-history
-bindkey '\ek' up-line-or-history
-# bindkey '\eu' undo
-bindkey '\eH' backward-word
-bindkey '\eL' forward-word
-bindkey '\eJ' beginning-of-line
-bindkey '\eK' end-of-line
+# bindkey -s '\ee' 'vim\n'
+# bindkey '\eh' backward-char
+# bindkey '\el' forward-char
+# bindkey '\ej' down-line-or-history
+# bindkey '\ek' up-line-or-history
+# # bindkey '\eu' undo
+# bindkey '\eH' backward-word
+# bindkey '\eL' forward-word
+# bindkey '\eJ' beginning-of-line
+# bindkey '\eK' end-of-line
 
-bindkey -s '\eo' 'cd ..\n'
-bindkey -s '\e;' 'll\n'
+# bindkey -s '\eo' 'cd ..\n'
+# bindkey -s '\e;' 'll\n'
 
-bindkey '\e[1;3D' backward-word
-bindkey '\e[1;3C' forward-word
-bindkey '\e[1;3A' beginning-of-line
-bindkey '\e[1;3B' end-of-line
+# bindkey '\e[1;3D' backward-word
+# bindkey '\e[1;3C' forward-word
+# bindkey '\e[1;3A' beginning-of-line
+# bindkey '\e[1;3B' end-of-line
 
-bindkey '\ev' deer
+# bindkey '\ev' deer
 
 alias ll='ls -l'
 
@@ -296,3 +295,4 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U +X bashcompinit && bashcompinit
 
 eval $(thefuck --alias)
+bindkey -e
