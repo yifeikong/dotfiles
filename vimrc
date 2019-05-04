@@ -99,6 +99,7 @@ set hlsearch
 "*******************************************************************************
 
 let g:black_virtualenv='~/.vim/.black'
+let g:black_fast=1
 let &t_SI="\e[6 q"
 let &t_EI="\e[2 q"
 let g:vimim_cloud=-1
