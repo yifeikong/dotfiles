@@ -180,6 +180,19 @@ autocmd VimEnter,Colorscheme * : hi IndentGuidesEven ctermbg=black
 
 let g:go_fmt_fail_silently = 1
 
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
 " let g:vimade = {}
 " let g:vimade.basefg = [208, 208, 208]
 " let g:vimade.basebg = [18, 18, 18]
@@ -225,6 +238,7 @@ Plug 'heavenshell/vim-pydocstring'
 " Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'ambv/black'
 Plug 'fisadev/vim-isort'
+Plug 'leafgarland/typescript-vim'
 
 " enhancements
 Plug 'mkitt/tabline.vim'
@@ -241,7 +255,7 @@ Plug 'scrooloose/nerdtree'
 "Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'  " <leader>t
 Plug 'wesQ3/vim-windowswap'
-Plug 'TaDaa/vimade'
+" Plug 'TaDaa/vimade'  " this plugin make reading code worse
 
 " prompt
 Plug 'prabirshrestha/async.vim'
@@ -253,7 +267,7 @@ Plug 'skywind3000/asyncrun.vim'
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'zxqfl/tabnine-vim'
+    " Plug 'zxqfl/tabnine-vim'  " YCM always hangs for almost everything
     " Plug 'Valloric/YouCompleteMe'
     " need to call ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --go-completer --js-completer
 endif

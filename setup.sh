@@ -2,6 +2,11 @@
 
 DOTFILES_DIR=$HOME/.dotfiles
 
+install_node() {
+    # node tags support
+    npm install --global git+https://github.com/Perlence/tstags.git 
+}
+
 install_tmux() {
     if [[ `uname -a` == *"Darwin"* ]]; then
         brew install cmatrix
