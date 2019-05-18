@@ -2,8 +2,15 @@
     name = Yifei Kong
     email = kongyifei@gmail.com
 [push]
-	default = current
+    default = current
 [alias]
+
+    # Complex aliases
+    plog = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+    tlog = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+    rank = shortlog -sn --no-merges
+    bdm = "!git branch --merged | grep -v '*' | xargs -n 1 git branch -d"
+
     co = checkout
     br = branch
     ci = commit
@@ -11,6 +18,7 @@
     ps = push
     pl = pull
     df = diff
+    dc = diff --cached
     unstage = reset HEAD --
     lg = !"git lg1"
     lg1 = !"git lg1-specific --all"
@@ -42,7 +50,7 @@
 [core]
     excludesfile = ~/.dotfiles/gitignore_global
     pager = diff-so-fancy | less --tabs=4 -RFX
-	quotepath = false
+    quotepath = false
 [color "diff-highlight"]
     oldNormal = red bold
     oldHighlight = red bold 52
@@ -55,9 +63,9 @@
     old = red bold
     whitespace = red reverse
 [diff-so-fancy]
-	useUnicodeRuler = false
+    useUnicodeRuler = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
