@@ -286,7 +286,7 @@ let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal 
 
 " colors
 "Plug 'whatyouhide/vim-gotham' " Code never sleeps in gotham city
-"Plug 'altercation/vim-colors-solarized'  " current colorscheme
+Plug 'altercation/vim-colors-solarized'  " current colorscheme
 Plug 'tomasr/molokai'
 " Plug 'ErichDonGubler/vim-sublime-monokai'
 " Plug 'NLKNguyen/papercolor-theme'
@@ -308,7 +308,7 @@ Plug '~/repos/vim-sync'
 call plug#end()
 
 set background=dark
-colo molokai  " colorscheme depends on plugins
+colo solarized  " colorscheme depends on plugins
 hi Folded ctermbg=NONE guibg=NONE " I just don't like the folded line to be hied
 hi Visual cterm=bold ctermbg=Blue ctermfg=NONE
 

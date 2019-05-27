@@ -279,7 +279,7 @@ if uname | grep -q Darwin; then
     # proxy on
 fi
 
-export PYTHONPATH=$HOME/repos/futile:$HOME/repos/inf:$HOME/repos/app_common:$HOME/repos:/var/compiled
+export PYTHONPATH=$HOME/repos/futile:$HOME/repos:/var/compiled
 export CONFPATH=$HOME/repos/conf
 export GOPATH=$HOME/.go
 path+=($GOPATH/bin)
