@@ -267,7 +267,7 @@ Plug 'skywind3000/asyncrun.vim'
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    " Plug 'zxqfl/tabnine-vim'  " YCM always hangs for almost everything
+    Plug 'zxqfl/tabnine-vim'  " YCM always hangs for almost everything
     " Plug 'Valloric/YouCompleteMe'
     " need to call ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --go-completer --js-completer
 endif
