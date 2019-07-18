@@ -60,13 +60,14 @@ antigen bundle command-not-find
 antigen bundle colored-man-pages
 antigen bundle django
 antigen bundle docker
-antigen bundle fzf
+# antigen bundle fzf
 antigen bundle history
 antigen bundle kubectl
 antigen bundle colorize
 antigen bundle github
 antigen bundle python
 antigen bundle rupa/z z.sh
+antigen bundle zsh-users/zsh-completions
 
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
@@ -122,7 +123,7 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 # enable syntax highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-antigen apply
+# antigen apply  # moved to the end
 
 # setup for deer
 # autoload -U deer
@@ -242,7 +243,6 @@ alias shn='sudo shutdown -h now'
 alias mirror='wget -E -H -k -K -p'
 alias reload='source ~/.zshrc && echo ".zshrc reloaded"'
 alias dc='docker-compose'
-alias spaces='du -sh $(ls)'
 alias sudo='sudo ' # magic trick to bring aliases to sudo
 alias px="proxychains4"
 alias lcurl='curl --noproxy localhost'
@@ -284,7 +284,6 @@ export CONFPATH=$HOME/repos/conf
 export GOPATH=$HOME/.go
 path+=($GOPATH/bin)
 path+=(/home/linuxbrew/.linuxbrew/bin)
-unalias grv
 
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc
 
@@ -295,4 +294,5 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U +X bashcompinit && bashcompinit
 
 eval $(thefuck --alias)
-bindkey -e
+antigen apply
+# bindkey -e
