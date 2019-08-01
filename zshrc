@@ -60,7 +60,7 @@ antigen bundle command-not-find
 antigen bundle colored-man-pages
 antigen bundle django
 antigen bundle docker
-# antigen bundle fzf
+antigen bundle fzf
 antigen bundle history
 antigen bundle kubectl
 antigen bundle colorize
@@ -70,7 +70,6 @@ antigen bundle rupa/z z.sh
 antigen bundle zsh-users/zsh-completions
 
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
 # antigen bundle supercrabtree/k
 antigen bundle Vifon/deer
 antigen bundle nojhan/liquidprompt
@@ -80,8 +79,9 @@ antigen bundle zsh-users/zaw
 antigen bundle wfxr/forgit
 
 # uncomment the line below to enable theme
-antigen theme candy
+# antigen theme candy
 #antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+antigen theme denysdovhan/spaceship-prompt
 
 
 # check login shell
@@ -296,3 +296,4 @@ autoload -U +X bashcompinit && bashcompinit
 eval $(thefuck --alias)
 antigen apply
 # bindkey -e
+

@@ -36,6 +36,7 @@
     pulldirty = !git stash && git pull --rebase && git stash pop
     sshow = "!f() { git stash show stash^{/$*} -p; }; f"
     sapply = "!f() { git stash apply stash^{/$*}; }; f"
+    save = "!f() { git commit -am \"WIP: save at `date +'%Y-%m-%d %H:%M:%S'`\"; }; f"
 
 [color]
     branch = auto
