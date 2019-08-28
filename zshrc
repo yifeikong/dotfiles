@@ -2,6 +2,7 @@
 # Antigen: https://github.com/zsh-users/antigen
 ANTIGEN="$HOME/.local/bin/antigen.zsh"
 PATH="$PATH"
+DISABLE_FZF_AUTO_COMPLETION=true
 
 # Install antigen.zsh if not exist
 if [ ! -f "$ANTIGEN" ]; then
