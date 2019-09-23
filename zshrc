@@ -265,6 +265,8 @@ function proxy {
     echo http_proxy=$http_proxy https_proxy=$https_proxy
 }
 
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 typeset -U path
 path+=($HOME/.local/bin)
 path+=($HOME/.cargo/bin)
