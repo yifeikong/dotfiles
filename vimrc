@@ -440,6 +440,7 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap q: :q
 nnoremap <F12> :e ++enc=utf-8<CR>
+nnoremap zz :wa<CR>
 
 " close quick fix if it's last window
 aug QFClose
