@@ -282,9 +282,9 @@ if uname | grep -q Darwin; then
     # proxy on
 fi
 
-export PYTHONPATH=$HOME/repos/futile:$HOME/repos:/var/compiled
+export PYTHONPATH=$HOME/repos/unity/python:$HOME/repos/futile:$HOME/repos:/var/compiled
 export CONFPATH=$HOME/repos/conf
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/repos/unity/go
 path+=($GOPATH/bin)
 path+=(/home/linuxbrew/.linuxbrew/bin)
 
@@ -299,4 +299,3 @@ autoload -U +X bashcompinit && bashcompinit
 eval $(thefuck --alias)
 antigen apply
 # bindkey -e
-
