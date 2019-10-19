@@ -282,9 +282,10 @@ if uname | grep -q Darwin; then
     # proxy on
 fi
 
-export PYTHONPATH=$HOME/repos/unity/python:$HOME/repos/futile:$HOME/repos:/var/compiled
+export UNITYPATH=$HOME/repos/unity
+export PYTHONPATH=$UNITYPATH/py/src:$HOME:/repo:$HOME/repos/futile:$HOME/repos:/var/compiled
 export CONFPATH=$HOME/repos/conf
-export GOPATH=$HOME/repos/unity/go
+export GOPATH=$UNITYPATH/go
 path+=($GOPATH/bin)
 path+=(/home/linuxbrew/.linuxbrew/bin)
 
