@@ -1,5 +1,4 @@
 # From: https://github.com/skywind3000/vim/blob/master/etc/zshrc.zsh
-# Antigen: https://github.com/zsh-users/antigen
 ANTIGEN="$HOME/.local/bin/antigen.zsh"
 PATH="$PATH"
 DISABLE_FZF_AUTO_COMPLETION=true
@@ -69,20 +68,15 @@ antigen bundle github
 antigen bundle python
 antigen bundle rupa/z z.sh
 antigen bundle zsh-users/zsh-completions
-
 antigen bundle zsh-users/zsh-autosuggestions
 # antigen bundle supercrabtree/k
 antigen bundle Vifon/deer
 antigen bundle nojhan/liquidprompt
-
 antigen bundle willghatch/zsh-cdr
 antigen bundle zsh-users/zaw
 antigen bundle wfxr/forgit
 
-# uncomment the line below to enable theme
-# antigen theme candy
-#antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
-antigen theme denysdovhan/spaceship-prompt
+antigen theme candy
 
 
 # check login shell
@@ -124,35 +118,8 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 # enable syntax highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# antigen apply  # moved to the end
+antigen apply
 
-# setup for deer
-# autoload -U deer
-# zle -N deer
-
-# default keymap
-# bindkey -s '\ee' 'vim\n'
-# bindkey '\eh' backward-char
-# bindkey '\el' forward-char
-# bindkey '\ej' down-line-or-history
-# bindkey '\ek' up-line-or-history
-# # bindkey '\eu' undo
-# bindkey '\eH' backward-word
-# bindkey '\eL' forward-word
-# bindkey '\eJ' beginning-of-line
-# bindkey '\eK' end-of-line
-
-# bindkey -s '\eo' 'cd ..\n'
-# bindkey -s '\e;' 'll\n'
-
-# bindkey '\e[1;3D' backward-word
-# bindkey '\e[1;3C' forward-word
-# bindkey '\e[1;3A' beginning-of-line
-# bindkey '\e[1;3B' end-of-line
-
-# bindkey '\ev' deer
-
-alias ll='ls -l'
 
 
 # options
@@ -298,5 +265,4 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U +X bashcompinit && bashcompinit
 
 eval $(thefuck --alias)
-antigen apply
 # bindkey -e
