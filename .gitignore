@@ -6,3 +6,4 @@ def.pyc
 .DS_Store
 tags
 .mypy_cache
+local_*
