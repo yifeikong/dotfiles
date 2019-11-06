@@ -233,6 +233,7 @@ function proxy {
 }
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 typeset -U path
 path+=($HOME/.local/bin)
@@ -250,13 +251,11 @@ if uname | grep -q Darwin; then
 fi
 
 export UNITYPATH=$HOME/repos/unity
-export PYTHONPATH=$UNITYPATH/py/src:$HOME:/repo:$HOME/repos/futile:$HOME/repos:/var/compiled
-export CONFPATH=$HOME/repos/conf
+export PYTHONPATH=$UNITYPATH/py/src:$HOME/repos:/var/compiled
+export CONFPATH=$UNITYPATH/conf
 export GOPATH=$UNITYPATH/go
 path+=($GOPATH/bin)
 path+=(/home/linuxbrew/.linuxbrew/bin)
-
-[[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -265,4 +264,4 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U +X bashcompinit && bashcompinit
 
 eval $(thefuck --alias)
-# bindkey -e
+[[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc
