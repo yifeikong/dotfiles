@@ -250,10 +250,11 @@ if uname | grep -q Darwin; then
     # proxy on
 fi
 
+export LIBPATH=$HOME/repos/lib
 export UNITYPATH=$HOME/repos/unity
 export PYTHONPATH=$UNITYPATH/py/src:$HOME/repos:/var/compiled
 export CONFPATH=$UNITYPATH/conf
-export GOPATH=$UNITYPATH/go
+export GOPATH=$LIBPATH/go:$UNITYPATH/go
 path+=($GOPATH/bin)
 path+=(/home/linuxbrew/.linuxbrew/bin)
 
