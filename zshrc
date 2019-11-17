@@ -3,6 +3,8 @@ ANTIGEN="$HOME/.local/bin/antigen.zsh"
 PATH="$PATH"
 DISABLE_FZF_AUTO_COMPLETION=true
 
+
+
 # Install antigen.zsh if not exist
 if [ ! -f "$ANTIGEN" ]; then
     echo "Installing antigen ..."
@@ -139,9 +141,12 @@ setopt HIST_VERIFY # Dont execute immediately upon history expansion.
 setopt promptsubst
 
 
-# ignore complition
+# ignore completion
 zstyle ':completion:*:complete:-command-:*:*' ignored-patterns '*.pdf|*.exe|*.dll'
 zstyle ':completion:*:*sh:*:' tag-order files
+
+# kubectl completion
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
