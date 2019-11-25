@@ -146,7 +146,7 @@ zstyle ':completion:*:complete:-command-:*:*' ignored-patterns '*.pdf|*.exe|*.dl
 zstyle ':completion:*:*sh:*:' tag-order files
 
 # kubectl completion
-if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+# if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -248,6 +248,7 @@ path+=($HOME/.dotfiles/bin)
 path+=($HOME/.linuxbrew/bin)
 path+=($HOME/repos/deploy/bin)
 path+=(/snap/bin)
+path+=($HOME/.poetry/bin)
 if uname | grep -q Darwin; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
     path+=($ANDROID_HOME/tools)

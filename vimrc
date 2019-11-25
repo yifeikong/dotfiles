@@ -255,6 +255,7 @@ Plug 'scrooloose/nerdtree'
 "Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'  " <leader>t
 Plug 'wesQ3/vim-windowswap'
+Plug 'psliwka/vim-smoothie'
 " Plug 'TaDaa/vimade'  " this plugin make reading code worse
 
 " prompt
