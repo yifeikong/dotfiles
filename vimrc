@@ -227,6 +227,7 @@ Plug 'posva/vim-vue'
 " Plug 'solarnz/thrift.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'othree/yajs.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'alvan/vim-php-manual'
@@ -255,7 +256,7 @@ Plug 'scrooloose/nerdtree'
 "Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'  " <leader>t
 Plug 'wesQ3/vim-windowswap'
-Plug 'psliwka/vim-smoothie'
+" Plug 'psliwka/vim-smoothie'  " not very helpful
 " Plug 'TaDaa/vimade'  " this plugin make reading code worse
 
 " prompt
