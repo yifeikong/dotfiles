@@ -79,6 +79,8 @@ set cursorcolumn
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing()
+
 
 " filetype fixes
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -266,6 +268,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf'}  " install in ~/.fzf and only for vim
 Plug 'junegunn/fzf.vim'  " full fzf support in vim
 Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'hotoo/pangu.vim'
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
@@ -369,6 +372,8 @@ endfunction
 noremap <leader>a :Ag<CR>
 noremap <leader>A :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
+au FileType python map <silent> <leader>B :Black<esc>
+au FileType markdown map <silent> <leader>B :Pangu<esc>
 nnoremap <leader>B :Black<CR>
 noremap <leader>c :Commands<CR>
 nnoremap <leader>g :ALEGoToDefinition<CR>

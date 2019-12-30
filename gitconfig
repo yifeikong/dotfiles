@@ -2,7 +2,7 @@
     name = Yifei Kong
     email = kongyifei@gmail.com
 [push]
-	default = current
+    default = current
 [alias]
 
     # Complex aliases
