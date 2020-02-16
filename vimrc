@@ -227,15 +227,17 @@ call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'posva/vim-vue'
 " Plug 'solarnz/thrift.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+Plug 'yuezk/vim-js'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'alvan/vim-php-manual'
 Plug 'rust-lang/rust.vim'
 Plug 'tmhedberg/SimpylFold'  " pythonic fold
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
 Plug 'heavenshell/vim-pydocstring'
 " Plug 'JamshedVesuna/vim-markdown-preview'
