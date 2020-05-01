@@ -271,10 +271,11 @@ Plug 'junegunn/fzf.vim'  " full fzf support in vim
 Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'hotoo/pangu.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'zxqfl/tabnine-vim'  " YCM always hangs for almost everything
+    " Plug 'zxqfl/tabnine-vim'  " YCM always hangs for almost everything
     " Plug 'Valloric/YouCompleteMe'
     " need to call ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --go-completer --js-completer
 endif
@@ -328,6 +329,7 @@ let mapleader = " "
 " sudo related
 cmap w!! w !sudo tee %
 cmap x!! w !sudo tee %<CR><CR>:q!<CR>
+cmap W w
 
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
