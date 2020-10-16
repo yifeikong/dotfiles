@@ -4,7 +4,6 @@ PATH="$PATH"
 DISABLE_FZF_AUTO_COMPLETION=true
 
 
-
 # Install antigen.zsh if not exist
 if [ ! -f "$ANTIGEN" ]; then
     echo "Installing antigen ..."
@@ -235,6 +234,19 @@ function proxy {
         echo -n "Usage: proxy [on|off] "
     fi
     echo http_proxy=$http_proxy https_proxy=$https_proxy
+}
+
+
+# https://davidsword.ca/prevent-icloud-syncing-node_modules-folder/
+function nosync {
+    if [[ ! -L node_modules ]]; then
+        mv node_modules node_modules.nosync
+        ln -s node_modules.nosync/ node_modules
+    fi
+    if [[ ! -L .venv ]]; then
+        mv .venv .venv.nosync
+        ln -s .venv.nosync/ .venv
+    fi
 }
 
 export HOMEBREW_NO_AUTO_UPDATE=1
