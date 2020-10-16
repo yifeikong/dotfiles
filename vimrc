@@ -48,14 +48,19 @@ set undofile                  " infinite undo
 " color and outfit
 set number                    " show line number
 "set rnu                       " relative number
+" See: https://vim.fandom.com/wiki/Word_wrap_without_line_breaks
 set wrap                      " auto reline
+set linebreak
+set textwidth=0
+set wrapmargin=0
 set formatoptions+=m " 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=B " 合并两行中文时，不在中间加空格
+set formatoptions+=j " 合并两行时自动删除注释
+set breakat=
 " set foldmethod=indent
 " set foldnestmax=99
-set textwidth=88
 "set formatoptions=qrn1
-set colorcolumn=81         " 81th column colored
+set colorcolumn=100         " 100th column colored
 set list
 set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
 au FileType go set listchars=tab:\ \ ,trail:·,extends:>,precedes:<
@@ -66,7 +71,6 @@ set magic
 
 set splitright
 set splitbelow
-set cursorcolumn
 
 
 " for molokai, no need for that!
@@ -102,6 +106,8 @@ set hlsearch
 
 let g:black_virtualenv='~/.vim/.black'
 let g:black_fast=1
+let g:black_linelength = 100
+
 let &t_SI="\e[6 q"
 let &t_EI="\e[2 q"
 let g:vimim_cloud=-1
@@ -132,7 +138,7 @@ let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn|pyc)$'
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_match_window='min:4,max:10,results:100'
 
-let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o$', '\.la$', '^tags$']
+let NERDTreeIgnore=['__pycache__', '\.pyc$', '\.lo$', '\.o$', '\.la$', '^tags$', '\.swp$']
 " let g:nerdtree_tabs_open_on_console_startup=0
 " let g:nerdtree_tabs_open_on_gui_startup=0
 " close nerdtree on open file
@@ -143,6 +149,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeMapOpenInTab='<C-t>'
 let g:NERDTreeMapOpenSplit='<C-x>'
 let g:NERDTreeMapOpenVSplit='<C-v>'
+let NERDTreeShowHidden=1
 
 let g:startify_disable_at_vimenter=1
 let vim_markdown_preview_github=1
@@ -275,7 +282,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    " Plug 'zxqfl/tabnine-vim'  " YCM always hangs for almost everything
+    Plug 'zxqfl/tabnine-vim'  " YCM always hangs for almost everything
     " Plug 'Valloric/YouCompleteMe'
     " need to call ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --go-completer --js-completer
 endif
@@ -375,16 +382,16 @@ endfunction
 
 noremap <leader>a :Ag<CR>
 noremap <leader>A :Ag! -Q <C-r>=expand('<cword>')<CR><CR>
-au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
-au FileType python map <silent> <leader>B :Black<esc>
-au FileType markdown map <silent> <leader>B :Pangu<esc>
-nnoremap <leader>B :Black<CR>
+au FileType python map <silent> <leader>B oimport ipdb; ipdb.set_trace()<esc>
+au FileType python map <silent> <leader>b :Black<esc>
+au FileType markdown map <silent> <leader>b :Pangu<esc>
+nnoremap <leader>b :Black<CR>
 noremap <leader>c :Commands<CR>
 nnoremap <leader>g :ALEGoToDefinition<CR>
 nnoremap <leader>G :ALEGoToDefinitionInTab<CR>
 nnoremap <leader>H :tabe<CR>:HackerNews<CR>
-nnoremap <leader>i :IndentLinesToggle<CR>
-nnoremap <leader>I :Isort<CR>
+nnoremap <leader>I :IndentLinesToggle<CR>
+nnoremap <leader>i :Isort<CR>
 nnoremap <leader>j :%!json_format<CR>  " rely on ~/.dotfiles/bin/json_format
 nnoremap <leader>m :call TrimWhiteSpace()<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
