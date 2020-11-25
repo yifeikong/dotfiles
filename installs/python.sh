@@ -5,10 +5,10 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-VERSION=3.6.1
-PREFIX=/opt/spider/python
+VERSION=3.8.0
+PREFIX=/usr/local
 
-apt-get install libsqlite3-dev -y
+apt-get install libsqlite3-dev libmysqlclient-dev libbz2-dev libffi-dev -y
 curl https://www.python.org/ftp/python/${VERSION}/Python-${VERSION}.tgz -o Python-${VERSION}.tgz
 tar xvzf Python-${VERSION}.tgz
 cd Python-${VERSION}
