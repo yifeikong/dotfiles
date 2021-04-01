@@ -13,6 +13,7 @@ curl https://www.python.org/ftp/python/${VERSION}/Python-${VERSION}.tgz -o Pytho
 tar xvzf Python-${VERSION}.tgz
 cd Python-${VERSION}
 ./configure \
+    --enable-optimizations \
     --prefix=${PREFIX} \
     --enable-loadable-sqlite-extensions
 make
