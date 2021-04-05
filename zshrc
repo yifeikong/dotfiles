@@ -221,6 +221,7 @@ alias lcurl='curl --noproxy localhost'
 alias save-last-command='history | tail -n 2 | head -n 1 >> ~/.dotfiles/useful_commands'
 alias topcpu='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head'
 alias topmem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'
+alias ipy='python -m IPython'
 
 function proxy {
     if [[ $1 = "on" ]]; then
