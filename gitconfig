@@ -1,6 +1,6 @@
 [user]
     name = Yifei Kong
-    email = kongyifei@gmail.com
+    email = kong@yifei.me
 [push]
     default = current
 [alias]
@@ -71,4 +71,4 @@
     process = git-lfs filter-process
     required = true
 [pull]
-	rebase = true
+    rebase = true

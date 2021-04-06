@@ -254,18 +254,18 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 typeset -U path
-path+=($HOME/.local/bin)
-path+=($HOME/.cargo/bin)
-path+=(/usr/local/go/bin)
-path+=($HOME/.dotfiles/bin)
-path+=($HOME/.linuxbrew/bin)
-path+=($HOME/repos/deploy/bin)
-path+=(/snap/bin)
-path+=($HOME/.poetry/bin)
+[ -d $HOME/.local/bin ] && path+=($HOME/.local/bin)
+[ -d $HOME/.cargo/bing ] && path+=($HOME/.cargo/bin)
+[ -d /usr/local/go/bin ] && path+=(/usr/local/go/bin)
+[ -d $HOME/.dotfiles/bin ] && path+=($HOME/.dotfiles/bin)
+[ -d $HOME/.linuxbrew/bin ] && path+=($HOME/.linuxbrew/bin)
+[ -d /home/linuxbrew/.linuxbrew/bin ] && path+=(/home/linuxbrew/.linuxbrew/bin)
+[ -d $HOME/repos/deploy/bin ] && path+=($HOME/repos/deploy/bin)
+[ -d /snap/bin ] && path+=(/snap/bin)
 if uname | grep -q Darwin; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
-    path+=($ANDROID_HOME/tools)
-    path+=($ANDROID_HOME/platform-tools)
+    # path+=($ANDROID_HOME/tools)
+    # path+=($ANDROID_HOME/platform-tools)
     # proxy on
 fi
 
@@ -275,7 +275,6 @@ export PYTHONPATH=$UNITYPATH/py/src:$HOME/repos:/var/compiled
 export CONFPATH=$UNITYPATH/conf
 export GOPATH=$LIBPATH/go:$UNITYPATH/go
 path+=($GOPATH/bin)
-path+=(/home/linuxbrew/.linuxbrew/bin)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -284,4 +283,6 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U +X bashcompinit && bashcompinit
 
 eval $(thefuck --alias)
+eval "$(pyenv init -)"
+
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc

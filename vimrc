@@ -232,7 +232,6 @@ endif
 call plug#begin('~/.vim/plugged')
 " language related
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'posva/vim-vue'
 " Plug 'solarnz/thrift.vim'
 " Plug 'pangloss/vim-javascript'
 " Plug 'mxw/vim-jsx'
@@ -256,9 +255,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mkitt/tabline.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
-"Plug 'mhinz/vim-startify'
-" Plug 'bling/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -267,8 +263,6 @@ Plug 'scrooloose/nerdtree'
 "Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'  " <leader>t
 Plug 'wesQ3/vim-windowswap'
-" Plug 'psliwka/vim-smoothie'  " not very helpful
-" Plug 'TaDaa/vimade'  " this plugin make reading code worse
 
 " prompt
 Plug 'prabirshrestha/async.vim'
