@@ -161,6 +161,7 @@ let g:vim_isort_map = ''
 let g:ale_linters = {
   \ 'python': ['pycodestyle', 'flake8'] ,
   \ }
+let g:ale_completion_enabled = 0
 " install
 " pip install pycodestyle
 " sudo gem install sqlint, however sqlint only supports postgres, not mysql
