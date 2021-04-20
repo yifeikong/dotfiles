@@ -283,6 +283,5 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U +X bashcompinit && bashcompinit
 
 eval $(thefuck --alias)
-eval "$(pyenv init -)"
 
 [[ -s ~/.dotfiles/local_zshrc ]] && source ~/.dotfiles/local_zshrc
