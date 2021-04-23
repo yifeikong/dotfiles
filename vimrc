@@ -232,16 +232,17 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " language related
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " Plug 'solarnz/thrift.vim'
 " Plug 'pangloss/vim-javascript'
 " Plug 'mxw/vim-jsx'
 Plug 'yuezk/vim-js'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 " Plug 'othree/yajs.vim'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'alvan/vim-php-manual'
+" Plug 'alvan/vim-php-manual'
 Plug 'rust-lang/rust.vim'
 Plug 'tmhedberg/SimpylFold'  " pythonic fold
 " Plug 'sheerun/vim-polyglot'
@@ -250,7 +251,6 @@ Plug 'heavenshell/vim-pydocstring'
 " Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'ambv/black'
 Plug 'fisadev/vim-isort'
-Plug 'leafgarland/typescript-vim'
 
 " enhancements
 Plug 'mkitt/tabline.vim'
