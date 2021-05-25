@@ -204,7 +204,6 @@ alias fig=docker-compose
 alias tmux='tmux -2'
 alias t='tmux -2'
 alias cd..='cd ..'
-alias ipy=ipython
 alias py=python
 alias g='git'
 alias ll='ls -alh'
@@ -271,7 +270,7 @@ fi
 
 export LIBPATH=$HOME/repos/lib
 export UNITYPATH=$HOME/repos/unity
-export PYTHONPATH=$UNITYPATH/py/src:$HOME/repos:/var/compiled
+export PYTHONPATH=$UNITYPATH/src
 export CONFPATH=$UNITYPATH/conf
 export GOPATH=$LIBPATH/go:$UNITYPATH/go
 path+=($GOPATH/bin)
