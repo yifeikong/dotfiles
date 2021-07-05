@@ -225,13 +225,13 @@ alias ipy='python -m IPython'
 function proxy {
     if [[ $1 = "on" ]]; then
         # proxy offered by local shadowsocks
-        export http_proxy=http://127.0.0.1:1087
-        export https_proxy=http://127.0.0.1:1087
+        export http_proxy=http://127.0.0.1:$2
+        export https_proxy=http://127.0.0.1:$2
     elif [[ $1 = "off" ]]; then
         unset http_proxy
         unset https_proxy
     else
-        echo -n "Usage: proxy [on|off] "
+        echo -n "Usage: proxy [on|off] PORT"
     fi
     echo http_proxy=$http_proxy https_proxy=$https_proxy
 }
